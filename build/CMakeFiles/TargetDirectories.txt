@@ -1,0 +1,5 @@
+/Users/soma/code/trae/12-01-09/06/build/CMakeFiles/sleep_tracker.dir
+/Users/soma/code/trae/12-01-09/06/build/CMakeFiles/test_stats.dir
+/Users/soma/code/trae/12-01-09/06/build/CMakeFiles/test.dir
+/Users/soma/code/trae/12-01-09/06/build/CMakeFiles/edit_cache.dir
+/Users/soma/code/trae/12-01-09/06/build/CMakeFiles/rebuild_cache.dir
