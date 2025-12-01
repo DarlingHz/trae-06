@@ -1,0 +1,5 @@
+if(EXISTS "/Users/soma/code/trae/12-01-08/06/build/tests/chat_archive_test[1]_tests.cmake")
+  include("/Users/soma/code/trae/12-01-08/06/build/tests/chat_archive_test[1]_tests.cmake")
+else()
+  add_test(chat_archive_test_NOT_BUILT chat_archive_test_NOT_BUILT)
+endif()
