@@ -1,0 +1,6 @@
+{
+  "server_port": 8080,
+  "database_path": "./chat_archive.db",
+  "log_level": "info",
+  "log_file": "./chat_archive.log"
+}
