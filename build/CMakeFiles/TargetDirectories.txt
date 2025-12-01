@@ -1,0 +1,3 @@
+/Users/soma/code/trae/12-01-07/06/build/CMakeFiles/survey_server.dir
+/Users/soma/code/trae/12-01-07/06/build/CMakeFiles/edit_cache.dir
+/Users/soma/code/trae/12-01-07/06/build/CMakeFiles/rebuild_cache.dir
