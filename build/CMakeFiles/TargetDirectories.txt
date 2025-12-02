@@ -1,0 +1,3 @@
+/Users/soma/code/trae/12-02/08/06/build/CMakeFiles/collab_doc_service.dir
+/Users/soma/code/trae/12-02/08/06/build/CMakeFiles/edit_cache.dir
+/Users/soma/code/trae/12-02/08/06/build/CMakeFiles/rebuild_cache.dir
