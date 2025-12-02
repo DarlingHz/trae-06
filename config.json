@@ -1,0 +1,24 @@
+{
+  "server": {
+    "port": 8080,
+    "thread_pool_size": 4,
+    "max_request_size": 1048576
+  },
+  "database": {
+    "path": "pet_hospital.db"
+  },
+  "logging": {
+    "level": "info",
+    "output": ["console", "file"],
+    "file_path": "./pet_hospital.log",
+    "max_file_size": 10485760,
+    "max_backup_files": 5
+  },
+  "authentication": {
+    "token_expiration_hours": 24,
+    "token_secret": "pet_hospital_secret_key"
+  },
+  "cache": {
+    "doctors_ttl_seconds": 300
+  }
+}

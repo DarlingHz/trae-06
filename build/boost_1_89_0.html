@@ -1,0 +1,6112 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    
+      <script defer
+            data-domain="boost.org"
+            src="https://plausible.io/js/script.manual.js"></script>
+   
+    <title>Boost 1.89.0</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover what's new in Boost 1.89.0">
+    <meta name="keywords" content="">
+    <meta name="author" content="Boost C++ Libraries">
+    <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" sizes="any">
+    <link rel="icon" href="/static/img/favicon.png" type="image/png" sizes="48x48">
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+    <link rel="manifest" href="/static/img/site.webmanifest">
+
+    <meta class="meta-theme" name="theme-color" content="#FAFAFA" data-dark="#18181B" data-light="#FAFAFA">
+    <meta class="meta-theme" name="color-scheme" content="light" data-dark="dark" data-light="light">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@ryangjchandler/alpine-clipboard@2.x.x/dist/alpine-clipboard.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    <!-- TODO bring this local if we like it -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/static/js/theme_handling.js"></script>
+    <script src="/static/js/scroll-to-link.js" defer></script>
+    <script src="/static/js/utils.js"></script>
+    <script src="/static/js/boost-gecko/main.C3hPHS6-.js" defer></script>
+    
+      <link href="/static/css/styles.css" rel="stylesheet">
+      <link href="/static/css/components.css" rel="stylesheet">
+      
+      <link href="/static/css/boostlook.css" rel="stylesheet">
+    
+
+    
+    <style>
+    
+    :root {
+    --site-light-bg-color: rgb(229, 231, 235);
+    --site-dark-bg-color: rgb(5, 26, 38);
+    --site-light-card-color: #fff;
+    --site-dark-card-color: rgb(23, 42, 52);
+    --site-light-border-color: #d1d1d1;
+    --site-dark-border-color: #07405f;
+    --site-light-text-color: rgb(49, 74, 87);
+    --site-dark-text-color: #ccc;
+    --site-dark-heading-text-color: #fff;
+    --site-light-heading-text-color: rgb(49, 74, 87);
+    --site-primary-orange: rgb(255, 159, 0);
+    --site-light-secondary-blue: rgb(2, 132, 199);
+    --site-dark-secondary-blue: rgb(125, 211, 252);
+    --site-light-teritary-green: rgb(14, 174, 96);
+    --site-dark-teritary-green: rgb(90, 213, 153);
+    --site-light-shadow-color: rgba(0,0,0,0.3);
+    --site-dark-shadow-color: transparent;
+    /* specific use colors */
+     /* header height var for docs positioning */
+    --header-height: 2.5rem;
+}
+html {
+    --bg-color: var(--site-light-bg-color);
+    --card-color: var(--site-light-card-color);
+    --border-color: var(--site-light-border-color);
+    --text-color: var(--site-light-text-color);
+    --header-color: var(--site-light-heading-text-color);
+    --primary-color: var(--site-primary-orange);
+    --secondary-color: var(--site-light-secondary-blue);
+    --teritary-color: var(--site-light-teritary-green);
+    --shadow-color: var(--site-light-shadow-color);
+    /* specific use colors */
+}
+html.dark {
+    --bg-color: var(--site-dark-bg-color);
+    --card-color: var(--site-dark-card-color);
+    --border-color: var(--site-dark-border-color);
+    --text-color: var(--site-dark-text-color);
+    --header-color: var(--site-dark-heading-text-color);
+    --primary-color: var(--site-primary-orange);
+    --secondary-color: var(--site-dark-secondary-blue);
+    --teritary-color: var(--site-dark-teritary-green);
+    --shadow-color: var(--site-dark-shadow-color);
+    /* specific use colors */
+}
+
+    .header-menu-bar {
+        padding: 0 1rem;
+        height: 41px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0px 1px 0px #d1d1d1;
+        border-bottom: 1px solid #f6f6f6;
+        max-width: 80rem;
+        margin: 0 auto;
+        color: var(--text-color);
+        font-family: "Noto Sans" !important;
+    }
+    .DEBUG .header-menu-bar {
+        font-family: "Noto Sans", serif !important;
+    }
+    .dark .header-menu-bar {
+        border-bottom: 1px solid #07405f;
+        box-shadow: 0 1px 0 #000;
+    }
+    .header-menu-bar .left-menubar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-grow: 1;
+    }
+    .header-menu-bar .right-menubar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        max-width: 9rem;
+    }
+    .header-menu-bar .logo-link {
+        width: 31px;
+        height: 31px;
+    }
+    .header-menu-bar .menu-link {
+        text-transform: capitalize;
+        text-decoration: none;
+        margin-left: 1rem;
+        font-weight: 500;
+        color: var(--text-color);
+        font-size: 18px;
+    }
+    .header-menu-bar .menu-link-right {
+        text-transform: capitalize;
+        margin-right: 1rem;
+        font-weight: 500;
+        color: var(--text-color);
+        font-size: 18px;
+        white-space: nowrap;
+    }
+    .icon-link {
+        display:block;
+        margin-left: 1rem;
+        cursor: pointer
+    }
+    .dark .icon-link {
+        opacity: 0.5;
+    }
+    .icon-link:hover,
+    .menu-link:hover,
+    .active-link,
+    .mobile-menu-item a:hover {
+        color: var(--primary-color) !important;
+        opacity: 1;
+    }
+    .boost-drop-shadow {
+      box-shadow: 2px 2px 5px 1px var(--shadow-color);
+    }
+    .guide-modal {
+        position: absolute;
+        right:0;
+        z-index: 10;
+        padding: .25rem .5rem;
+        margin-top: .5rem;
+        width: 10rem;
+        text-align:left;
+        background-color: var(--card-color);
+        border-radius: 0.375rem;
+        border: 1px solid var(--border-color);
+        box-shadow: 3px 3px 7px 1px var(--shadow-color);
+    }
+    .guide-modal a {
+        margin-left: .5rem;
+        display: block;
+        padding: .5rem 0;
+        font-size: .8rem;
+        cursor: pointer;
+        color: var(--text-color);
+        border-bottom: var(--border-color) 1px solid;
+    }
+    .guide-modal a:last-child {
+        border-bottom: none;
+    }
+    .guide-modal a:hover {
+        color: var(--primary-color);
+    }
+    #pageselector {
+        text-transform: capitalize;
+        margin-left: 1rem;
+        font-weight: 500;
+        display:flex;
+        position: absolute;
+        top: 2.25rem;
+        left: 1.75rem;
+        flex-direction: column;
+        z-index: 10;
+        color: var(--text-color);
+        background-color: var(--card-color);
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+    }
+    .hide {
+        display: none !important;
+    }
+    .mobile-menu-item {
+          min-width: 10rem;
+          padding: .5rem 1rem;
+          border-bottom: var(--border-color) 1px solid;
+          text-transform: capitalize;
+        }
+    .mobile-menu-item:last-child {
+      border-bottom: none;
+    }
+    #avatar svg {
+        width: 1rem;
+        height: 1rem;
+        color: var(--text-color);
+        fill: var(--primary-color);
+    }
+    #mobileNav {
+        display: flex;
+        align-items: center;
+    }
+    #selectedpage {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+    #pageName {
+      text-transform: capitalize;
+    }
+    #desktopNav {
+            display: none;
+        }
+    @media screen and (min-width: 768px) {
+        #mobileNav {
+            display: none;
+        }
+        #desktopNav {
+            display: flex;
+        }
+    }
+    /* specific to docs */
+    body.article {
+      max-width: 100% !important;
+      margin: 0;
+      padding: 0px .75rem !important;
+    }
+    body .body {
+      margin: 0px 1rem;
+      padding: 1.5rem 0rem 0;
+      max-width: 80rem;
+    }
+    body.article  #headblock {
+      padding: 0.25rem 1rem !important;
+    }
+    article.card {
+      border-radius: .5rem;
+      padding-top: .5rem !important;
+    }
+    @media (min-width: 769px) {
+      body.article {
+        max-width: 80rem !important;
+        margin: auto;
+        padding: 0px 2.25rem;
+        border-radius: .5rem;
+     }
+    }
+    @media (max-width: 768px) {
+      body.article {
+        padding: 0px !important;
+        border-radius: 0rem !important;
+        margin: 0 !important;
+     }
+    body.article  #headblock {
+      padding: 0.25rem 0.5rem !important;
+     }
+     .body {
+      margin: 0 !important;
+      padding: 0 !important;
+     }
+     .article .card {
+      border-radius: 0 !important;
+     }
+    }
+
+    /* asciidoc layout base */
+
+    .main-footer {
+      max-width: 80rem !important;
+    }
+
+    .link-icons {
+      width: 4rem;
+    }
+
+    .links {
+      padding: 0 0.5rem;
+    }
+
+    .source-docs-antora .doc {
+        padding-top: 0 !important;
+    }
+
+    @media screen and (max-width: 940px) {
+      .links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+
+    @media screen and (max-width: 769px) {
+
+      .source-docs-asciidoc #header  #toc.toc2 {
+         position: relative !important;
+         height: auto;
+      }
+
+        .main-footer {
+          margin-left: 0 !important;
+          margin: auto !important
+        }
+    }
+
+    .hidenav {
+      display: none !important;
+    }
+      .toast-text {
+        display: flex;
+        font-size: .9rem;
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+      }
+      .red-delete {
+        display: inline;
+        padding: .1rem .5rem;
+        margin: 0 1rem;
+        border: 2px solid #fff;
+        border-radius: .3rem;
+        color: #fff;
+        font-size: .8rem;
+      }
+      .red-delete:hover {
+        background-color: #fff;
+        color: #f00;
+      }
+      .red-cancel {
+        display:inline;
+        padding: .1rem .5rem;
+        margin-left: 2rem;
+        border: 2px solid #fff;
+        border-radius: .3rem;
+        background-color: #fff;
+        color: var(--text-color);
+        font-size: .8rem;
+      }
+      .red-cancel:hover {
+        color: #f00;
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wdth,wght@62.5..100,100..900&family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap" rel="stylesheet">
+  </head>
+
+  <body x-init="() => {const m = localStorage.getItem('colorMode');
+            if (m !== 'dark' && m !== 'light') return;
+            mode = m;
+            document.head.querySelectorAll('.meta-theme').forEach((el) => {
+              el.setAttribute('content', el.getAttribute('data-' + m));
+            });
+        }"
+        class="h-screen bg-gray-200 dark:bg-black" >
+         <div class="modal-overlay" id="modalOverlay"><div class="modal-content"><iframe id="modalFrame" class="w-full h-full rounded-xl m-0 p-0"></iframe><div class="modal-close" id="modalClose" onclick="closeModal()"><i class="fa-solid fa-xmark fa-lg"></i></div></div></div>
+      <div class="max-w-7xl md:px-3 mx-auto transition-all">
+      
+        
+
+<div class="header-menu-bar topnavbar">
+    <!-- mobile navbar -->
+    <div id="mobileNav" >
+      <a href="/" title="Boost Home" class="logo-link"><img src="/static/img/Boost_Symbol_Transparent.svg" alt="Boost"></a>
+      <div id="selectedpage" onclick="openNav()" class="">
+        <div id="pageName">Releases</div>
+        <div class="material-symbols-outlined">arrow_drop_down</div>
+      </div>
+      <div id="pageselector" onmouseleave="closeNav()" class="hide boost-drop-shadow"  >
+          <div class="mobile-menu-item"><a href="/news/" title="News">News</a></div>
+          <div class="mobile-menu-item"><a href="/docs/" title="Learn">Learn</a></div>
+          <div class="mobile-menu-item"><a href="/community/" title="Community">Community</a></div>
+          <div class="mobile-menu-item"><a href="/libraries/" title="Libraries">Libraries</a></div>
+          <div class="mobile-menu-item"><a href="/releases/" title="Releases">Releases</a></div>
+      </div>
+    </div>
+    <!-- desktop navbar -->
+    <div id="desktopNav" class="left-menubar">
+        <a href="/" title="Boost Home" class="logo-link"><img src="/static/img/Boost_Symbol_Transparent.svg" alt="Boost"></a>
+        <a href="/news/" id="news" class="menu-link ">news</a>
+        <a href="/docs/" id="learn" class="menu-link ">learn</a>
+        <a href="/community/" id="community" class="menu-link ">community</a>
+        <a href="/libraries/" id="libraries" class="menu-link ">libraries</a>
+        <a href="/releases/" id="releases" class="menu-link active-link">releases</a>
+    </div>
+    <div class="right-menubar" x-data="{ 'searchOpen': false }">
+        <span style="position: relative;" x-ref="desktopSearchArea">
+         <i id="gecko-search-button" data-current-boost-version="1_89_0" data-theme-mode="light" data-font-family="sans-serif" class="fas fa-search icon-link"></i>
+        </span>
+        <span x-data="{ 'guideOpen': false }" style="position:relative;">
+            <i class="icon-link fas fa-question-circle" @click="guideOpen = !guideOpen"></i>
+                <span x-show="guideOpen" x-cloak @click.away="guideOpen = false" id="guideMenu" class="guide-modal boost-drop-shadow hidden">
+                    <a href="/doc/user-guide/index.html">User Guide</a>
+                    <a href="/doc/contributor-guide/index.html">Contributor Guide</a>
+                    <a href="/review/">Formal Reviews</a>
+                </span>
+            </span>
+        
+        <i id="light-dark" class="fas fa-sun icon-link " onclick="changeTheme()"></i>
+        
+        <span x-data="{ 'userOpen': false }" class="menu-link w-8 relative">
+            
+            <span hx-get="/users/avatar/"
+                 hx-trigger="load"
+                 hx-target="#avatar"
+                 hx-indicator="#avatar">
+            </span>
+            <span id="avatar"></span>
+        </span>
+    </div>
+</div>
+    <script>
+
+    if (window.parent !== window) {
+      var nav = document.getElementsByClassName('topnavbar');
+      console.log(nav);
+      nav[0].classList.add('hidenav');
+    }
+
+      // ************ Mobile Navigation **************
+      let containingElement = document.getElementById("pageselector");
+      document.body.addEventListener('click', function( event ){
+        if(!containingElement.contains( event.target ) ){
+          closeNav();
+        }
+      });
+      function openNav() {
+        ps = document.getElementById("pageselector");
+        ps.classList.remove('hide');
+      }
+      function closeNav() {
+         ps = document.getElementById("pageselector");
+        setTimeout(function() {
+          if (!ps.matches(':hover')) {
+            ps.classList.add('hide');
+          }
+        }, 2000);
+      }
+      function removejscssfile(filename, filetype){
+        var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none" //determine element type to create nodelist from
+        var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none" //determine corresponding attribute to test for
+        var allsuspects=document.getElementsByTagName(targetelement)
+          for (var i=allsuspects.length; i>=0; i--){ //search backwards within nodelist for matching elements to remove
+          if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+              allsuspects[i].parentNode.removeChild(allsuspects[i]) //remove element by calling parentNode.removeChild()
+          }
+      }
+      document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+          removejscssfile("boostbook.css", "css")
+          var guide = document.getElementById("guideMenu")
+          guide.classList.remove("hidden");
+        }
+      }
+    </script>
+
+      
+
+      <div class="w-full">
+        <div id="messages" class="w-full text-center transition-opacity" x-data="{show: true}">
+  
+</div>
+
+      </div>
+      
+
+      <div class="md:px-0 min-vh-110">
+      
+        
+        
+  <main>
+    
+    <div class="py-3 px-3 md:mt-3 md:px-0 mb-0 w-full flex flex-row flex-nowrap items-center"
+            x-data="{'showSearch': false}"
+            x-on:keydown.escape="showSearch=false">
+      <div class="flex-auto pb-1 w-full">
+
+        <div>
+          <span class="text-xl md:text-3xl">Newest Release</span>
+          <span class="text-lg whitespace-nowrap md:text-xl  pr-[1vw]">(1.89.0)</span>
+          <span><a href="/feed/downloads.rss" title="RSS feed" class="text-sky-600 dark:text-sky-400 hover:text-orange"><i class="fa-solid fa-rss"></i></a></span>
+        </div>
+      </div>
+      <div class="flex-shrink text-right">
+        
+<form action="." method="get">
+    <select
+        name="version"
+        class="dropdown !mb-0 h-[38px]"
+        id="id_version"
+    >
+        <option value="latest"
+                >
+            Latest (1.89.0)
+        </option>
+        
+            <option value="1.90.0.beta1"
+                
+                
+            >
+                1.90.0.Beta1
+            </option>
+        
+            <option value="1.89.0"
+                selected="selected"
+                
+            >
+                1.89.0
+            </option>
+        
+            <option value="1.88.0"
+                
+                
+            >
+                1.88.0
+            </option>
+        
+            <option value="1.87.0"
+                
+                
+            >
+                1.87.0
+            </option>
+        
+            <option value="1.86.0"
+                
+                
+            >
+                1.86.0
+            </option>
+        
+            <option value="1.85.0"
+                
+                
+            >
+                1.85.0
+            </option>
+        
+            <option value="1.84.0"
+                
+                
+            >
+                1.84.0
+            </option>
+        
+            <option value="1.83.0"
+                
+                
+            >
+                1.83.0
+            </option>
+        
+            <option value="1.82.0"
+                
+                
+            >
+                1.82.0
+            </option>
+        
+            <option value="1.81.0"
+                
+                
+            >
+                1.81.0
+            </option>
+        
+            <option value="1.80.0"
+                
+                
+            >
+                1.80.0
+            </option>
+        
+            <option value="1.79.0"
+                
+                
+            >
+                1.79.0
+            </option>
+        
+            <option value="1.78.0"
+                
+                
+            >
+                1.78.0
+            </option>
+        
+            <option value="1.77.0"
+                
+                
+            >
+                1.77.0
+            </option>
+        
+            <option value="1.76.0"
+                
+                
+            >
+                1.76.0
+            </option>
+        
+            <option value="1.75.0"
+                
+                
+            >
+                1.75.0
+            </option>
+        
+            <option value="1.74.0"
+                
+                
+            >
+                1.74.0
+            </option>
+        
+            <option value="1.73.0"
+                
+                
+            >
+                1.73.0
+            </option>
+        
+            <option value="1.72.0"
+                
+                
+            >
+                1.72.0
+            </option>
+        
+            <option value="1.71.0"
+                
+                
+            >
+                1.71.0
+            </option>
+        
+            <option value="1.70.0"
+                
+                
+            >
+                1.70.0
+            </option>
+        
+            <option value="1.69.0"
+                
+                
+            >
+                1.69.0
+            </option>
+        
+            <option value="1.68.0"
+                
+                
+            >
+                1.68.0
+            </option>
+        
+            <option value="1.67.0"
+                
+                
+            >
+                1.67.0
+            </option>
+        
+            <option value="1.66.0"
+                
+                
+            >
+                1.66.0
+            </option>
+        
+            <option value="1.65.1"
+                
+                
+            >
+                1.65.1
+            </option>
+        
+            <option value="1.65.0"
+                
+                
+            >
+                1.65.0
+            </option>
+        
+            <option value="1.64.0"
+                
+                
+            >
+                1.64.0
+            </option>
+        
+            <option value="1.63.0"
+                
+                
+            >
+                1.63.0
+            </option>
+        
+            <option value="1.62.0"
+                
+                
+            >
+                1.62.0
+            </option>
+        
+            <option value="1.61.0"
+                
+                
+            >
+                1.61.0
+            </option>
+        
+            <option value="1.60.0"
+                
+                
+            >
+                1.60.0
+            </option>
+        
+            <option value="1.59.0"
+                
+                
+            >
+                1.59.0
+            </option>
+        
+            <option value="1.58.0"
+                
+                
+            >
+                1.58.0
+            </option>
+        
+            <option value="1.57.0"
+                
+                
+            >
+                1.57.0
+            </option>
+        
+            <option value="1.56.0"
+                
+                
+            >
+                1.56.0
+            </option>
+        
+            <option value="1.55.0"
+                
+                
+            >
+                1.55.0
+            </option>
+        
+            <option value="1.54.0"
+                
+                
+            >
+                1.54.0
+            </option>
+        
+            <option value="1.53.0"
+                
+                
+            >
+                1.53.0
+            </option>
+        
+            <option value="1.52.0"
+                
+                
+            >
+                1.52.0
+            </option>
+        
+            <option value="1.51.0"
+                
+                
+            >
+                1.51.0
+            </option>
+        
+            <option value="1.50.0"
+                
+                
+            >
+                1.50.0
+            </option>
+        
+            <option value="1.49.0"
+                
+                
+            >
+                1.49.0
+            </option>
+        
+            <option value="1.48.0"
+                
+                
+            >
+                1.48.0
+            </option>
+        
+            <option value="1.47.0"
+                
+                
+            >
+                1.47.0
+            </option>
+        
+            <option value="1.46.1"
+                
+                
+            >
+                1.46.1
+            </option>
+        
+            <option value="1.46.0"
+                
+                
+            >
+                1.46.0
+            </option>
+        
+            <option value="1.45.0"
+                
+                
+            >
+                1.45.0
+            </option>
+        
+            <option value="1.44.0"
+                
+                
+            >
+                1.44.0
+            </option>
+        
+            <option value="1.43.0"
+                
+                
+            >
+                1.43.0
+            </option>
+        
+            <option value="1.42.0"
+                
+                
+            >
+                1.42.0
+            </option>
+        
+            <option value="1.41.0"
+                
+                
+            >
+                1.41.0
+            </option>
+        
+            <option value="1.40.0"
+                
+                
+            >
+                1.40.0
+            </option>
+        
+            <option value="1.39.0"
+                
+                
+            >
+                1.39.0
+            </option>
+        
+            <option value="1.38.0"
+                
+                
+            >
+                1.38.0
+            </option>
+        
+            <option value="1.37.0"
+                
+                
+            >
+                1.37.0
+            </option>
+        
+            <option value="1.36.0"
+                
+                
+            >
+                1.36.0
+            </option>
+        
+            <option value="1.35.0"
+                
+                
+            >
+                1.35.0
+            </option>
+        
+            <option value="1.34.1"
+                
+                
+            >
+                1.34.1
+            </option>
+        
+            <option value="1.34.0"
+                
+                
+            >
+                1.34.0
+            </option>
+        
+            <option value="1.33.1"
+                
+                
+            >
+                1.33.1
+            </option>
+        
+            <option value="1.33.0"
+                
+                
+            >
+                1.33.0
+            </option>
+        
+            <option value="1.32.0"
+                
+                
+            >
+                1.32.0
+            </option>
+        
+            <option value="1.31.0"
+                
+                
+            >
+                1.31.0
+            </option>
+        
+            <option value="1.30.2"
+                
+                
+            >
+                1.30.2
+            </option>
+        
+            <option value="1.30.1"
+                
+                
+            >
+                1.30.1
+            </option>
+        
+            <option value="1.30.0"
+                
+                
+            >
+                1.30.0
+            </option>
+        
+            <option value="1.29.0"
+                
+                
+            >
+                1.29.0
+            </option>
+        
+            <option value="1.28.0"
+                
+                
+            >
+                1.28.0
+            </option>
+        
+            <option value="1.27.0"
+                
+                
+            >
+                1.27.0
+            </option>
+        
+            <option value="1.26.0"
+                
+                
+            >
+                1.26.0
+            </option>
+        
+            <option value="1.25.1.bgl"
+                
+                
+            >
+                1.25.1-Bgl
+            </option>
+        
+            <option value="1.25.1"
+                
+                
+            >
+                1.25.1
+            </option>
+        
+            <option value="1.25.0"
+                
+                
+            >
+                1.25.0
+            </option>
+        
+            <option value="1.24.0"
+                
+                
+            >
+                1.24.0
+            </option>
+        
+            <option value="1.23.0"
+                
+                
+            >
+                1.23.0
+            </option>
+        
+            <option value="1.22.0"
+                
+                
+            >
+                1.22.0
+            </option>
+        
+            <option value="1.21.2"
+                
+                
+            >
+                1.21.2
+            </option>
+        
+            <option value="1.21.1"
+                
+                
+            >
+                1.21.1
+            </option>
+        
+            <option value="1.21.0"
+                
+                
+            >
+                1.21.0
+            </option>
+        
+            <option value="1.20.2"
+                
+                
+            >
+                1.20.2
+            </option>
+        
+            <option value="1.20.1"
+                
+                
+            >
+                1.20.1
+            </option>
+        
+            <option value="1.20.0"
+                
+                
+            >
+                1.20.0
+            </option>
+        
+            <option value="1.19.0"
+                
+                
+            >
+                1.19.0
+            </option>
+        
+            <option value="1.18.3"
+                
+                
+            >
+                1.18.3
+            </option>
+        
+            <option value="1.18.2"
+                
+                
+            >
+                1.18.2
+            </option>
+        
+            <option value="1.18.0"
+                
+                
+            >
+                1.18.0
+            </option>
+        
+            <option value="1.17.0"
+                
+                
+            >
+                1.17.0
+            </option>
+        
+            <option value="1.16.1"
+                
+                
+            >
+                1.16.1
+            </option>
+        
+    </select>
+</form>
+
+      </div>
+    </div>
+    <!-- alert for non-current Boost versions -->
+    
+  <div role="alert" class="version_alert">
+    <p>
+      <i class="fas fa-exclamation-circle"></i>
+      
+        You've currently chosen the 1.89.0 version. If a newer release comes out, you will continue to view the 1.89.0 version, not the new <a href="/releases/latest/" class="font-semibold underline dark:text-white text-charcoal">latest release</a>.
+      
+    </p>
+  </div>
+
+
+
+    <section class="content">
+      <div class="flex flex-row pb-2 w-full h-auto md:pb-0 md:w-auto">
+        <div class="flex flex-col h-full max-w-md">
+          <div class="h-8">
+            <span class="block pb-1 text-xs md:text-base font-bold">August 6, 2025</span>
+          </div>
+          <div class="-ml-2 h-3"></div>
+          <div class="flex flex-col h-full justify-between">
+            <div>
+              <div class="-ml-2 h-14">
+                <a class="block items-center py-1 px-2 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-slate text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange"
+                   href="/doc/libs/1_89_0">
+                  <span class="dark:text-white text-slate">Documentation</span>
+                  <span class="block text-xs">http://www.boost.org/doc/libs/1_89_0</span>
+                </a>
+              </div>
+              <div class="-ml-2 h-14">
+                <a class="block items-center py-1 px-2 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-slate text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange"
+                   href="https://github.com/boostorg/boost/releases/tag/boost-1.89.0">
+                  <i class="float-right mt-1 fab fa-github"></i>
+                  <span class="dark:text-white text-slate">Source Code</span>
+                  <span class="block text-xs">github.com/boostorg/boost/releases/tag/boost-1.89.0</span>
+                </a>
+              </div>
+            </div>
+            
+              
+              <div class="-ml-2">
+                <div class="block items-center py-1 px-2">
+                  <span class="dark:text-white text-slate font-semibold">Dependencies</span>
+                  <div class="text-base whitespace-normal">
+                    
+                      There were
+                      <span class="text-red-700">
+                        5 dependencies added
+                      </span>
+                      (in 4 libraries)
+                    
+                    
+                      and
+                    
+                    
+                      
+                      <span class="text-[rgb(14,174,96)] dark:text-green">
+                        5 dependencies removed
+                      </span>
+                      (in 2 libraries)
+                    
+                    this release.
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+        
+
+        </div>
+      </div>
+      <div class="overflow-x-hidden pb-2 pl-0 ml-0 space-x-6 w-full scroll-smooth h-auto md:pb-0 md:ml-6">
+        <div class="flex space-x-3">
+          
+          <table class="p-0 m-0 w-full text-sm text-left border-0 border-separate table-auto dark:text-white border-spacing-0 text-slate">
+            <tbody>
+              <tr>
+                <th scope="col"
+                    width="150"
+                    class="p-3 h-8 text-base bg-gray-100  border border-r-0 border-b-0 border-gray-400 dark:border-slate dark:bg-charcoal text-center">
+                  Platform
+                </th>
+                <th scope="col"
+                    width="700"
+                    class="p-3 text-base bg-gray-100 border border-r-0 border-b-0 border-gray-400 dark:border-slate dark:bg-charcoal">
+                  File
+                </th>
+                <th scope="col"
+                    colspan="2"
+                    class="p-3 text-base bg-gray-100 border border-b-0 border-gray-400 dark:border-slate dark:bg-charcoal">
+                  SHA256 Hash
+                </th>
+              </tr>
+                
+                  
+                    <tr>
+                      
+                        <th scope="row"
+                            rowspan="2"
+                            class="p-2 h-14 whitespace-normal border border-r-0 border-b-0 border-gray-400 dark:border-slate dark:bg-charcoal text-center">
+                          <i class="fab fa-linux"></i> Unix
+                        </th>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.bz2" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0.tar.bz2</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a">
+                        <span class="hidden xl:block">85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a</span>
+                        <span class="hidden md:block xl:hidden">85a33fa226....631b5a0c7a</span>
+                        <span class="md:hidden">85a33....a0c7a</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/source/boost_1_89_0.tar.gz" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0.tar.gz</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="9de758db755e8330a01d995b0a24d09798048400ac25c03fc5ea9be364b13c93">
+                        <span class="hidden xl:block">9de758db755e8330a01d995b0a24d09798048400ac25c03fc5ea9be364b13c93</span>
+                        <span class="hidden md:block xl:hidden">9de758db75....e364b13c93</span>
+                        <span class="md:hidden">9de75....13c93</span>
+                      </td>
+                    </tr>
+                  
+                
+                  
+                    <tr>
+                      
+                        <th scope="row"
+                            rowspan="2"
+                            class="p-2 h-14 whitespace-normal border border-r-0 border-b-0 border-gray-400 dark:border-slate dark:bg-charcoal text-center">
+                          <i class="fab fa-windows"></i> Windows
+                        </th>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/source/boost_1_89_0.7z" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0.7z</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="d8b0c1d593d68fe359616aa2fae4b3e258ca1f90ed57eb46c5494c29cdd1d49d">
+                        <span class="hidden xl:block">d8b0c1d593d68fe359616aa2fae4b3e258ca1f90ed57eb46c5494c29cdd1d49d</span>
+                        <span class="hidden md:block xl:hidden">d8b0c1d593....29cdd1d49d</span>
+                        <span class="md:hidden">d8b0c....1d49d</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/source/boost_1_89_0.zip" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0.zip</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="77bee48e32cabab96a3fd2589ec3ab9a17798d330220fdd8bde6ff5611b4ccde">
+                        <span class="hidden xl:block">77bee48e32cabab96a3fd2589ec3ab9a17798d330220fdd8bde6ff5611b4ccde</span>
+                        <span class="hidden md:block xl:hidden">77bee48e32....5611b4ccde</span>
+                        <span class="md:hidden">77bee....4ccde</span>
+                      </td>
+                    </tr>
+                  
+                
+                  
+                    <tr>
+                      
+                        <th scope="row"
+                            rowspan="7"
+                            class="p-2 h-14 whitespace-normal border border-r-0 border-gray-400 dark:border-slate dark:bg-charcoal text-center">
+                          <i class="fab fa-windows"></i> Windows (Binary)
+                        </th>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-bin-msvc-all-32-64.7z" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-bin-msvc-all-32-64.7z</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="3af5e74837ba9df07905da7c7928ee629e9d3b1618dedb5819f908b79cc943c7">
+                        <span class="hidden xl:block">3af5e74837ba9df07905da7c7928ee629e9d3b1618dedb5819f908b79cc943c7</span>
+                        <span class="hidden md:block xl:hidden">3af5e74837....b79cc943c7</span>
+                        <span class="md:hidden">3af5e....943c7</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-msvc-14.1-32.exe" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-msvc-14.1-32.exe</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="c56f0c8403b35cd0b56006cebf8ebe9a30900f550a71876889564acdec46c6d7">
+                        <span class="hidden xl:block">c56f0c8403b35cd0b56006cebf8ebe9a30900f550a71876889564acdec46c6d7</span>
+                        <span class="hidden md:block xl:hidden">c56f0c8403....cdec46c6d7</span>
+                        <span class="md:hidden">c56f0....6c6d7</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-msvc-14.1-64.exe" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-msvc-14.1-64.exe</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="a15a639404e1d036854d2bdc99ae7e66b4cebe50d9915267a171e892fc4fbe4e">
+                        <span class="hidden xl:block">a15a639404e1d036854d2bdc99ae7e66b4cebe50d9915267a171e892fc4fbe4e</span>
+                        <span class="hidden md:block xl:hidden">a15a639404....92fc4fbe4e</span>
+                        <span class="md:hidden">a15a6....fbe4e</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-msvc-14.2-32.exe" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-msvc-14.2-32.exe</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="f4fb119c68dee53844aa37e637b33f4abe246898e60e49fc1d0e375046529156">
+                        <span class="hidden xl:block">f4fb119c68dee53844aa37e637b33f4abe246898e60e49fc1d0e375046529156</span>
+                        <span class="hidden md:block xl:hidden">f4fb119c68....5046529156</span>
+                        <span class="md:hidden">f4fb1....29156</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-msvc-14.2-64.exe" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-msvc-14.2-64.exe</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="1c6bb4a160faae0c5a7be4138ab2e53045ca205820cf163446b6c10c00226a42">
+                        <span class="hidden xl:block">1c6bb4a160faae0c5a7be4138ab2e53045ca205820cf163446b6c10c00226a42</span>
+                        <span class="hidden md:block xl:hidden">1c6bb4a160....0c00226a42</span>
+                        <span class="md:hidden">1c6bb....26a42</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-msvc-14.3-32.exe" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-msvc-14.3-32.exe</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-b-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-b-0 border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="e5a3d1921a69af6131cc86c335cb410228c0bc62c0f36741da7f12cb3fadc264">
+                        <span class="hidden xl:block">e5a3d1921a69af6131cc86c335cb410228c0bc62c0f36741da7f12cb3fadc264</span>
+                        <span class="hidden md:block xl:hidden">e5a3d1921a....cb3fadc264</span>
+                        <span class="md:hidden">e5a3d....dc264</span>
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td class="p-2 border border-r-0 border-gray-400 dark:border-slate">
+                        <a href="https://archives.boost.io/release/1.89.0/binaries/boost_1_89_0-msvc-14.3-64.exe" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">boost_1_89_0-msvc-14.3-64.exe</a>
+                      </td>
+                      <td width="30"
+                          class="p-2 mx-1 text-center align-bottom whitespace-nowrap border border-r-0 border-gray-400 dark:border-slate">
+                        <button class="justify-center items-center w-4 h-full font-semibold shadow"
+                                @click="$clipboard($el.parentElement.nextSibling.nextSibling.title)">
+                          <svg class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6 19v2c0 .621.52 1 1 1h2v-1.5h-1.5v-1.5zm7.5 3h-3.5v-1.5h3.5zm4.5 0h-3.5v-1.5h3.5zm4-3h-1.5v1.5h-1.5v1.5h2c.478 0 1-.379 1-1zm-1.5-1v-3.363h1.5v3.363zm0-4.363v-3.637h1.5v3.637zm-13-3.637v3.637h-1.5v-3.637zm11.5-4v1.5h1.5v1.5h1.5v-2c0-.478-.379-1-1-1zm-10 0h-2c-.62 0-1 .519-1 1v2h1.5v-1.5h1.5zm4.5 1.5h-3.5v-1.5h3.5zm3-1.5v-2.5h-13v13h2.5v-1.863h1.5v3.363h-4.5c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v4.5h-3.5v-1.5z" />
+                          </svg>
+                        </button>
+                      </td>
+                      <td class="border pr-2 text-xs border-l-0 border-gray-400 dark:border-slate truncCell dark:bg-charcoal"
+                          title="36dd9d060ba51c856c39693edaa3ae3a07a07e57fa51b81b2c15d2fd0aaa72a8">
+                        <span class="hidden xl:block">36dd9d060ba51c856c39693edaa3ae3a07a07e57fa51b81b2c15d2fd0aaa72a8</span>
+                        <span class="hidden md:block xl:hidden">36dd9d060b....fd0aaa72a8</span>
+                        <span class="md:hidden">36dd9....a72a8</span>
+                      </td>
+                    </tr>
+                  
+                
+
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </section>
+
+    
+      <section id="libraryReadMe"
+        class="boostlook p-6 my-4 bg-white md:rounded-lg md:shadow-lg dark:text-white text-slate dark:bg-charcoal dark:bg-neutral-700">
+        <h2>Version 1.89.0</h2><p><span class='news-date"'>August 14th, 2025 02:16 GMT</span></p><p><a class="text-sky-600" href="/doc/libs/1_89_0/">Documentation</a>
+<br/><br/>
+<h3>New Libraries</h3>
+<ul class="new-libraries">
+<li><a class="text-sky-600" href="/libs/bloom/">Bloom</a>: <ul><li>
+   filters, from Joaquín
+          M López Muñoz.</li></ul></li>
+</ul>
+<h3>Updated Libraries</h3>
+<ul>
+<li>
+<a class="text-sky-600" href="/libs/any/">Any</a>:
+<ul>
+<li>
+<strong>Initial support for C++20 Modules</strong>.
+                See the docs for more info.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/asio/">Asio</a>:
+<ul>
+<li>
+
+                Added allocator constructors to <code>execution_context</code>,
+                <code>io_context</code> and <code>thread_pool</code>, with the supplied
+                allocator being used for allocating objects associated with the execution
+                context.
+              
+</li>
+<li>
+
+                Added a new configuration parameter "timer" / "heap_reserve"
+                that may be used to reserve space in the vector used for a timer
+                queue's heap.
+              
+</li>
+<li>
+
+                Added a new configuration parameter "resolver" / "threads"
+                that specifies the number of internal threads used by <code>async_resolve</code> to emulate asynchronous
+                address resolution.
+              
+</li>
+<li>
+
+                Removed <code>deadline_timer</code>,
+                <code>basic_deadline_timer</code>
+                and <code>time_traits</code> from
+                the convenience header <tt>boost/asio.hpp</tt>.
+              
+</li>
+<li>
+
+                Ensured that the Windows named pipes created by <code>connect_pipe</code>
+                use unique names that do not conflict if Asio is used in multiple,
+                independent plug-in DLLs.
+              
+</li>
+<li>
+
+                Changed <code>BOOST_ASIO_CONCURRENCY_HINT_SAFE</code>
+                to be consistent with the <code>io_context</code>
+                default constructor.
+              
+</li>
+<li>
+
+                Fixed the documentation for <code>BOOST_ASIO_CONCURRENCY_HINT_UNSAFE_IO</code>
+                to reflect that registration locking is still enabled.
+              
+</li>
+<li>
+
+                Added separate <tt>b2</tt> and <tt>cmake</tt>
+                build targets for optional dependencies.
+              
+</li>
+<li>
+
+                Added the <code><span class="special">[[</span>noreturn<span class="special">]]</span></code> attribute to <code>boost<span class="special">::</span>asio<span class="special">::</span>detail<span class="special">::</span>throw_exception</code>.
+              
+</li>
+<li>
+
+                Fixed <code>co_spawn</code> to
+                adhere to the asynchronous operation requirement for non-reentrant
+                invocation of the completion handler.
+              
+</li>
+<li>
+
+                Added a documentation note on <code>basic_signal_set</code>
+                async signal safety.
+              
+</li>
+<li>
+
+                Fixed various minor compilation errors on different platforms.
+              
+</li>
+<li>
+
+                Consult the <a class="text-sky-600" href="/doc/libs/1_89_0/doc/html/boost_asio/history.html">Revision
+                History</a> for further details.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/atomic/">Atomic</a>:
+<ul>
+<li>
+
+                Added TSAN instrumentation in asm-based x86, AArch32, AArch64 and
+                PPC backends. This silences TSAN false errors for code using Boost.Atomic
+                for thread synchronization.
+              
+</li>
+<li>
+
+                Following the announcement in Boost 1.84, removed support for Windows
+                versions older than Windows 10.
+                <ul>
+<li>
+
+                      A note to MinGW-w64 users. Since Windows SDK headers on MinGW-w64
+                      define <code>_WIN32_WINNT</code>
+                      to an older Windows version by default, you may need to define
+                      <code>_WIN32_WINNT<span class="special">=</span><span class="number">0x0A00</span></code>
+                      or <code>BOOST_USE_WINAPI_VERSION<span class="special">=</span><span class="number">0x0A00</span></code>
+                      when compiling Boost.Atomic and the code that uses Boost.Atomic.
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Support for Windows CE is deprecated and will be removed in a future
+                release.
+              
+</li>
+<li>
+
+                Added support for timed waiting operations.
+              
+</li>
+<li>
+
+                Exposed <code>thread_pause</code>
+                operation, which can be used as a backoff measure in spin loops.
+                Added support for PowerPC and improved support for AArch64 in <code>thread_pause</code>.
+              
+</li>
+<li>
+
+                Removed <code>BOOST_ATOMIC_NO_ATOMIC_FLAG_INIT</code>
+                macro definition. Since the library now requires C++11, <code>BOOST_ATOMIC_FLAG_INIT</code> is always
+                supported.
+              
+</li>
+<li>
+
+                Enabled bitwise operations for atomic enumerations. This can be useful
+                when enumerations are used to implement bit masks.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/beast/">Beast</a>:
+<ul>
+<li>
+
+                Fixes
+                <ul>
+<li>
+
+                      Conditionally defined <code>immediate_executor_type</code>
+                      in <code>async_base</code>.
+                    
+</li>
+<li>
+
+                      Added missing <code>cstdint</code>
+                      header to <code>detail<span class="special">/</span>cpu_info<span class="special">.</span>hpp</code>.
+                    
+</li>
+<li>
+
+                      Fixed <code>std<span class="special">::</span>is_trivial</code> deprecation warnings.
+                    
+</li>
+<li>
+<code>handshake_timeout</code>
+                      now applies to closing handshakes during reads.
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Improvements
+                <ul>
+<li>
+
+                      Replaced <code>detail<span class="special">/</span>work_guard<span class="special">.</span>hpp</code>
+                      with <code>net<span class="special">::</span>executor_work_guard</code>.
+                    
+</li>
+<li>
+
+                      Fixed portability issues for building tests in MinGW.
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Documentation
+                <ul>
+<li>
+
+                      Removed moved sections from documentation.
+                    
+</li>
+<li>
+
+                      Removed superfluous log messages from tests.
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Acknowledgements
+                <ul>
+<li>
+
+                      yliu1021
+                    
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/charconv">Charconv</a>:
+<ul>
+<li>
+
+                Fixed a performance degradation with <code>from_chars</code>
+                for integer types
+              
+</li>
+<li>
+
+                Fixed rounding and trailing decimal place bugs with <code>to_chars</code> for specified precisions
+                with floating point types
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/cobalt/">Cobalt</a>:
+<ul>
+<li>
+
+                Move assign fixed for generator &amp; promise.
+              
+</li>
+<li>
+
+                Fixed internal exceptions
+              
+</li>
+<li>
+
+                Added IO library. Cobalt.io provides a large subset of asio as a
+                compiled library.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/compat/">Compat</a>:
+<ul>
+<li>
+
+                Added <code>move_only_function<span class="special">.</span>hpp</code>.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/container_hash/">ContainerHash</a>:
+<ul>
+<li>
+
+                Added the <code>hash_is_avalanching</code>
+                trait class.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/conversion/">Conversion</a>:
+<ul>
+<li>
+
+                Added an ability to use <code>polymorphic_downcast</code>
+                and <code>polymorphic_cast</code>
+                in constexpr (requires C++20).
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/core/">Core</a>:
+<ul>
+<li>
+
+                Fixed <code>bit_ceil</code> to
+                return 1 for input 0 as per specification. (<a class="text-sky-600" href="https://github.com/boostorg/core/pull/199">PR#199</a>)
+              
+</li>
+<li>
+
+                Added support for <code>std<span class="special">::</span>format</code>
+                to <code>boost<span class="special">::</span>core<span class="special">::</span>string_view</code>. (<a class="text-sky-600" href="https://github.com/boostorg/core/issues/190">#190</a>)
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/detail/">Detail</a>:
+<ul>
+<li>
+
+                Operators generated by <code>BOOST_BITMASK</code>
+                now use underlying type of the enum to implement bitwise operators.
+                The operators are marked <code><span class="keyword">noexcept</span></code>
+                and <code><span class="keyword">constexpr</span></code>, when
+                possible.
+              
+</li>
+<li>
+
+                The function <code>bitmask_set</code>
+                generated by <code>BOOST_BITMASK</code>
+                is marked deprecated. In a future release, <code>BOOST_BITMASK</code>
+                will stop producing this function. Users are recommended to use double
+                negation (<code><span class="special">!!</span>mask</code>)
+                to test if the value is zero. This affects e.g. enums defined in
+                Boost.Filesystem.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/dll/">DLL</a>:
+<ul>
+<li>
+
+                Fixed compiling and exporting on Cygwin. Many thanks to <a class="text-sky-600" href="https://github.com/Luohaothu">Luohao
+                Wang</a> for the PR!
+              
+</li>
+<li>
+
+                Fixed building on FreeBSD. Thanks to <a class="text-sky-600" href="https://github.com/agokhale">ash</a>
+                for the bug report!
+              
+</li>
+<li>
+
+                Added <code>BOOST_DLL_USE_STD_FS</code>
+                CMake option to match the preprocessor option. Thanks to <a class="text-sky-600" href="https://github.com/yurybura">Yury
+                Bura</a> for the PR!
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/filesystem/">Filesystem</a>:
+<ul>
+<li>
+
+                Corrected ASAN warnings about comparing pointers to potentially unrelated
+                objects in <code>path<span class="special">::</span>append</code>. (<a class="text-sky-600" href="https://github.com/boostorg/filesystem/issues/335">#335</a>)
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/geometry/">Geometry</a>:
+<ul>
+<li>
+
+                Major improvements
+                <ul>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/pull/1369">PR#1369</a> Rewrite of traversal
+                    
+</li>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/pull/1402">PR#1402</a> Add geometry polyhedral surface
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Improvements
+                <ul>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/pull/1404">PR#1404</a> Performance improvements in buffer
+                    
+</li>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/pull/1405">PR#1405</a> Avoid static variables and functions in
+                      header files
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Breaking changes
+                <ul>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/pull/1401">PR#1401</a> Remove deprecated headers
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Solved issues
+                <ul>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/issues/1221">#1221</a> Difference with rectilinear multipolygon with
+                      integer coordinates produces invalid polygon with disconnected
+                      interior
+                    
+</li>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/issues/1295">#1295</a> Wrong result in intersection (result polygon
+                      is equal to the biggest of the input polygons)
+                    
+</li>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/issues/1349">#1349</a> Difference of polygons giving wrong result
+                    
+</li>
+<li>
+<a class="text-sky-600" href="https://github.com/boostorg/geometry/issues/1382">#1382</a> Buffer operation creates self-intersection
+                    
+</li>
+<li>
+
+                      Various fixes of errors and warnings
+                    
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/hash2/">Hash2</a>:
+<ul>
+<li>
+
+                Added Blake2 algorithm (<code>blake2s_256</code>,
+                <code>blake2b_512</code>).
+              
+</li>
+<li>
+
+                Added XXH3 algorithm (<code>xxh3_128</code>).
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/iterator/">Iterator</a>:
+<ul>
+<li>
+
+                Fixed <code>filter_iterator</code>
+                copy/converting constructor, which could previously produce an invalid
+                iterator. (<a class="text-sky-600" href="https://github.com/boostorg/iterator/issues/92">#92</a>)
+              
+</li>
+<li>
+
+                Removed usage of <code>is_trivial</code>
+                in <code>iterator_facade</code>
+                as it is deprecated in C++26. (<a class="text-sky-600" href="https://github.com/boostorg/iterator/issues/93">#93</a>)
+              
+</li>
+<li>
+<code>iterator_facade<span class="special">::</span><span class="keyword">operator</span><span class="special">[]</span></code>
+                now always returns a proxy rather than conditionally returning a
+                value or a proxy. This allows users to bind a reference to the result
+                of the operator, regardless of whether the value type is trivially-copyable.
+                (<a class="text-sky-600" href="https://github.com/boostorg/iterator/issues/61">#61</a>)
+              
+</li>
+<li>
+
+                The proxy returned by <code>iterator_facade<span class="special">::</span><span class="keyword">operator</span><span class="special">[]</span></code> now supports forwarding dereferencing
+                operators to the referenced value. This allows <code>it<span class="special">[</span>n<span class="special">]-&gt;</span>foo<span class="special">()</span></code> and <code><span class="special">(*</span>it<span class="special">[</span>n<span class="special">]).</span>foo<span class="special">()</span></code>
+                expressions to compile.
+              
+</li>
+<li>
+
+                The proxy returned by <code>iterator_facade<span class="special">::</span><span class="keyword">operator</span><span class="special">[]</span></code> now implementes perfect forwarding
+                in its assignment operator.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/json/">JSON</a>:
+<ul>
+<li>
+
+                Revamped documentation.
+              
+</li>
+<li>
+
+                Optionals that are ranges are categorised as optionals.
+              
+</li>
+<li>
+
+                Described class support is enabled for types with bases.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/log/">Log</a>:
+<ul>
+<li>
+
+                Added support for <code>BOOST_LOG_WITHOUT_ASIO</code>
+                configuration macro, which can be used to remove the dependency on
+                Boost.Asio and disable the related functionality.
+              
+</li>
+<li>
+
+                Use locale-independent formatting of the file counter in <code>text_file_backend</code> when composing
+                log file names. This fixes failures in the subsequent parsing of
+                the file names in <code>file_collector<span class="special">::</span>scan_for_files</code>.
+                (<a class="text-sky-600" href="https://github.com/boostorg/log/pull/246">PR#246</a>)
+              
+</li>
+<li>
+
+                Added a new <code>wrap_filter</code>
+                utility that simplifies injecting user-defined function objects in
+                filtering expressions. (<a class="text-sky-600" href="https://github.com/boostorg/log/issues/195">#195</a>)
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/math/">Math</a>:
+<ul>
+<li>
+
+                Add explicit C++14 <code><span class="special">&lt;</span>type_traits<span class="special">&gt;</span></code>
+                and <code><span class="keyword">constexpr</span></code> requirement
+                to builds
+              
+</li>
+<li>
+
+                Collected fixes for GPU support on a variety of platforms
+              
+</li>
+<li>
+
+                Fix lower incomplete gamma function with x = 0
+              
+</li>
+<li>
+
+                Fix the external archive error in the jSO algorithm
+              
+</li>
+<li>
+
+                Fix numeric underflow in ibeta
+              
+</li>
+<li>
+
+                Fix inverse ibeta for large values of a and b
+              
+</li>
+<li>
+
+                Fix variadic functions to make them safe with C++26
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/mqtt5/">MQTT5</a>:
+<ul>
+<li>
+
+                Fixed incorrect parsing of URI paths in the list of brokers (<a class="text-sky-600" href="https://github.com/boostorg/mqtt5/issues/31">#31</a>).
+              
+</li>
+<li>
+
+                Default Maximum Packet Size now explicitly set in the <code>CONNECT</code> packet. (<a class="text-sky-600" href="https://github.com/boostorg/mqtt5/issues/33">#33</a>).
+              
+</li>
+<li>
+
+                Fixed high CPU usage with large Maximum Packet Size values (<a class="text-sky-600" href="https://github.com/boostorg/mqtt5/issues/33">#33</a>).
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/multiprecision/">Multiprecision</a>:
+<ul>
+<li>
+<strong>Major update.</strong>
+</li>
+<li>
+
+                Adds a new backend type: <code>cpp_double_fp_backend</code>
+</li>
+<li>
+
+                Fixes a namespace collision with Boost.Serialization
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/mysql/">MySQL</a>:
+<ul>
+<li>
+
+                The <code>caching_sha2_password</code>
+                authentication plugin can now be used without TLS. This is the default
+                in MySQL 8 and above. Plaintext connections that attempt to use this
+                plugin no longer fail with <code>client_errc<span class="special">::</span>auth_plugin_requires_ssl</code>
+                (<a class="text-sky-600" href="https://github.com/boostorg/mysql/issues/313">#313</a>).
+              
+</li>
+<li>
+
+                Fixed a problem causing <code>client_errc<span class="special">::</span>incomplete_message</code>
+                to be returned during connection establishment when the target database
+                does not exist and the <code>caching_sha2_password</code>
+                is used. The appropriate server-generated diagnostic is now returned.
+                See issues <a class="text-sky-600" href="https://github.com/boostorg/mysql/issues/468">#468</a> and <a class="text-sky-600" href="https://github.com/boostorg/mysql/issues/488">#488</a>.
+              
+</li>
+<li>
+
+                The handshake algorithm is now more resilient to protocol violations
+                (<a class="text-sky-600" href="https://github.com/boostorg/mysql/issues/469">#469</a>).
+              
+</li>
+<li>
+
+                Fixed a build failure with gcc-15 due to a missing include (<a class="text-sky-600" href="https://github.com/boostorg/mysql/pull/475">PR#475</a>).
+                Thanks <a class="text-sky-600" href="https://github.com/hhoffstaette">hhoffstaette</a>
+                for the PR.
+              
+</li>
+<li>
+
+                Added <a class="text-sky-600" href="/docs/libs/master/libs/mysql/doc/html/mysql/benchmarks.html">benchmarks
+                against the official drivers</a>.
+              
+</li>
+<li>
+
+                Optimized <code>metadata</code>
+                representation to be faster to construct and take less memory (<a class="text-sky-600" href="https://github.com/boostorg/mysql/issues/461">#461</a>).
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/pfr/">PFR</a>:
+<ul>
+<li>
+
+                Rewrite C++20 module following the new recommended Boost practice.
+                See the docs for more info.
+              
+</li>
+<li>
+
+                Fixed C++26 compilation on modern clang compilers. Thanks to <a class="text-sky-600" href="https://github.com/MBkkt">Valery Mironov</a> for the report!
+              
+</li>
+<li>
+
+                Support types that use 'Arrays of Length Zero' compiler extension.
+              
+</li>
+<li>
+
+                Fixed typos. Thanks to <a class="text-sky-600" href="https://github.com/TryKuhn">Egor</a>
+                for highlighting the issues!
+              
+</li>
+<li>
+
+                Return <code>std<span class="special">::</span>array<span class="special">&lt;</span>std<span class="special">::</span>string_view<span class="special">,</span>
+<span class="number">0</span><span class="special">&gt;</span></code>
+                type for <code>boost<span class="special">::</span>pfr<span class="special">::</span>names_as_array<span class="special">(</span>empty_struct<span class="special">{})</span></code>
+                to allow compilation of <code><span class="keyword">for</span>
+<span class="special">(</span>std<span class="special">::</span>string_view
+name <span class="special">:</span>
+boost<span class="special">::</span>pfr<span class="special">::</span>names_as_array<span class="special">(</span>empty_struct<span class="special">{}))</span></code>.
+                Many thanks to <a class="text-sky-600" href="https://github.com/sabudilovskiy">sabudilovskiy</a>
+                for the bug report!
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/process/">process</a>:
+<ul>
+<li>
+
+                Added <code>v1<span class="special">.</span>hpp</code> to emulate v1 <code>process<span class="special">.</span>hpp</code> include.
+              
+</li>
+<li>
+
+                Fix to windows path escaping
+              
+</li>
+<li>
+
+                Fixed exit-code issue wehre terminate &amp; async_wait lead to a
+                loss of the exit-code value.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/random/">Random</a>:
+<ul>
+<li>
+
+                Fix NAN being generated by <code>beta_distribution</code>
+</li>
+<li>
+
+                Improve the performance of <code>beta_distribution<span class="special">::</span><span class="keyword">operator</span><span class="special">()</span></code>
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/type_index/">TypeIndex</a>:
+<ul>
+<li>
+<strong>Initial support for C++20 Modules</strong>.
+                See the docs for more info.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/unordered/">Unordered</a>:
+<ul>
+<li>
+
+                Deprecated <code>boost<span class="special">::</span>unordered<span class="special">::</span>hash_is_avalanching</code>
+                is now a using-declaration of <code>boost<span class="special">::</span>hash_is_avalanching</code>
+                in <code><span class="special">&lt;</span>boost<span class="special">/</span>container_hash<span class="special">/</span>hash_is_avalanching<span class="special">.</span>hpp<span class="special">&gt;</span></code>. Use that header directly instead.
+                <code><span class="special">&lt;</span>boost<span class="special">/</span>unordered<span class="special">/</span>hash_traits<span class="special">.</span>hpp<span class="special">&gt;</span></code> will be removed in the future.
+              
+</li>
+<li>
+
+                Added <code>pull<span class="special">(</span>const_iterator<span class="special">)</span></code>
+                to open-addressing containers. This operation allows for efficient
+                removal and retrieval of an element via move construction.
+              
+</li>
+</ul>
+</li>
+<li>
+<a class="text-sky-600" href="/libs/histogram/">Histogram</a>:
+<ul>
+<li>
+
+                Update CMake minimum version and Python detection in CMake
+              
+</li>
+<li>
+
+                Improve documentation
+                <ul>
+<li>
+
+                      Add example on how to make an axis which accepts multiple value
+                      types that are not implicitly convertible
+                    
+</li>
+<li>
+
+                      Show how to use <code>histogram<span class="special">::</span>fill</code>
+                      with a multidimensional histogram efficiently when data per
+                      dimension is already available as contiguous data
+                    
+</li>
+</ul>
+</li>
+<li>
+
+                Don't use deprecated form of user-defined literal operator
+              
+</li>
+<li>
+
+                Add support for modular build structure with b2
+              
+</li>
+<li>
+
+                Fixed warnings in MSVC about narrowed types
+              
+</li>
+<li>
+
+                Added collector accumulator, which stores all values in a bin
+              
+</li>
+<li>
+
+                Internal changes to tests and classes in detail namespace
+              
+</li>
+</ul>
+</li>
+</ul>
+<h3>Updated Tools</h3>
+<ul>
+<li>
+<a class="text-sky-600" href="/tools/build/">Build</a>:
+<ul>
+<li>
+
+                Includes release of <a class="text-sky-600" href="/tools/build/doc/html/#_version_5_3_2">B2
+                version 5.3.2</a>.
+              
+</li>
+</ul>
+</li>
+</ul>
+<h3>Compilers Tested</h3>
+<p>
+      Boost's primary test compilers are:
+    </p>
+<ul>
+<li>
+
+          Linux:
+          <ul>
+<li>
+
+                Clang, C++03: 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 12.0.0, 13.0.0, 14.0.0,
+                15.0.0
+              
+</li>
+<li>
+
+                Clang, C++11: 3.4, 11.0.0, 13.0.0, 14.0.0, 15.0.0
+              
+</li>
+<li>
+
+                Clang, C++14: 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 5.0, 12.0.0, 13.0.0,
+                14.0.0, 15.0.0
+              
+</li>
+<li>
+
+                Clang, C++17: 6.0.1, 7.0.0, 8.0.0, 9.0.0, 10.0.0, 11.0.0, 12.0.0,
+                13.0.0, 14.0.0, 15.0.0
+              
+</li>
+<li>
+
+                Clang, C++20: 11.0.0, 12.0.0, 13.0.0, 14.0.0, 15.0.0
+              
+</li>
+<li>
+
+                GCC, C++03: 4.6.3, 11, 12
+              
+</li>
+<li>
+
+                GCC, C++11: 4.7.3, 4.8.5, 11, 12
+              
+</li>
+<li>
+
+                GCC, C++14: 5.4.0, 6.4.0, 7.3.0, 8.0.1, 9.1.0, 11, 12
+              
+</li>
+<li>
+
+                GCC, C++17: 7.3.0, 8.0.1, 9.1.0, 11, 12
+              
+</li>
+<li>
+
+                GCC, C++20: 8.0.1, 9.1.0, 10, 11, 12
+              
+</li>
+</ul>
+</li>
+<li>
+
+          OS X:
+          <ul>
+<li>
+
+                Apple Clang, C++03: 11.0.3
+              
+</li>
+<li>
+
+                Apple Clang, C++11: 11.0.3
+              
+</li>
+<li>
+
+                Apple Clang, C++14: 11.0.3
+              
+</li>
+<li>
+
+                Apple Clang, C++17: 11.0.3
+              
+</li>
+<li>
+
+                Apple Clang, C++20: 11.0.3
+              
+</li>
+</ul>
+</li>
+<li>
+
+          Windows:
+          <ul>
+<li>
+
+                Visual C++: 10.0, 11.0, 12.0, 14.0, 14.1, 14.2, 14.3
+              
+</li>
+</ul>
+</li>
+</ul>
+<h3>Acknowledgements</h3>
+<p>
+      Marshall Clow, Glen Fernandes and Ion Gaztañaga managed this release.
+    </p>
+</p>
+      </section>
+    
+
+    
+      <section id="releaseContributors"
+        class="p-6 my-4 bg-white md:rounded-lg md:shadow-lg dark:text-white text-slate dark:bg-charcoal dark:bg-neutral-700">
+        <h2 class="text-2xl mt-0">Contributors</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 gap-x-2">
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/ckormanyos">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Christopher Kormanyos">
+        
+          <img src="https://avatars.githubusercontent.com/u/2404721?v=4"
+            alt="Christopher Kormanyos"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Christopher Kormanyos
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/grafikrobot">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Rene Rivera">
+        
+          <img src="https://avatars.githubusercontent.com/u/2998253?v=4"
+            alt="Rene Rivera"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Rene Rivera
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/Lastique">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Andrey Semashev">
+        
+          <img src="https://avatars.githubusercontent.com/u/1589747?v=4"
+            alt="Andrey Semashev"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Andrey Semashev
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/jzmaddock">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="John Maddock">
+        
+          <img src="https://avatars.githubusercontent.com/u/5011768?v=4"
+            alt="John Maddock"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          John Maddock
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/pdimov">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Peter Dimov">
+        
+          <img src="https://avatars.githubusercontent.com/u/3116174?v=4"
+            alt="Peter Dimov"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Peter Dimov
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/mborland">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Matt Borland">
+        
+          <img src="https://avatars.githubusercontent.com/u/3745830?v=4"
+            alt="Matt Borland"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Matt Borland
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Syed Fahad">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Syed Fahad
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/klemens-morgenstern">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Klemens Morgenstern">
+        
+          <img src="https://avatars.githubusercontent.com/u/8020376?v=4"
+            alt="Klemens Morgenstern"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Klemens Morgenstern
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Janek Kozicki">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Janek Kozicki
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/apolukhin">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Antony Polukhin">
+        
+          <img src="https://avatars.githubusercontent.com/u/1700098?v=4"
+            alt="Antony Polukhin"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Antony Polukhin
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/chriskohlhoff">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Christopher Kohlhoff">
+        
+          <img src="https://avatars.githubusercontent.com/u/462538?v=4"
+            alt="Christopher Kohlhoff"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Christopher Kohlhoff
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/cmazakas">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Christian Mazakas">
+        
+          <img src="https://avatars.githubusercontent.com/u/5543573?v=4"
+            alt="Christian Mazakas"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Christian Mazakas
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/Flamefire">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Alexander Grund">
+        
+          <img src="https://avatars.githubusercontent.com/u/309017?v=4"
+            alt="Alexander Grund"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Alexander Grund
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/anarthal">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Anarthal (Rubén Pérez)">
+        
+          <img src="https://avatars.githubusercontent.com/u/34971811?v=4"
+            alt="Anarthal (Rubén Pérez)"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Anarthal (Rubén Pérez)
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/igaztanaga">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Ion Gaztañaga">
+        
+          <img src="https://avatars.githubusercontent.com/u/931338?v=4"
+            alt="Ion Gaztañaga"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Ion Gaztañaga
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/ned14">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Niall Douglas">
+        
+          <img src="https://avatars.githubusercontent.com/u/230408?v=4"
+            alt="Niall Douglas"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Niall Douglas
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/tzlaine">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Zach Laine">
+        
+          <img src="https://avatars.githubusercontent.com/u/82177?v=4"
+            alt="Zach Laine"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Zach Laine
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/vissarion">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Vissarion Fisikopoulos">
+        
+          <img src="https://avatars.githubusercontent.com/u/3660366?v=4"
+            alt="Vissarion Fisikopoulos"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Vissarion Fisikopoulos
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/striezel">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Dirk Stolle">
+        
+          <img src="https://avatars.githubusercontent.com/u/20865852?v=4"
+            alt="Dirk Stolle"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Dirk Stolle
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/joaquintides">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Joaquin M. López Muñoz">
+        
+          <img src="https://avatars.githubusercontent.com/u/3283164?v=4"
+            alt="Joaquin M. López Muñoz"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Joaquin M. López Muñoz
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/alandefreitas">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Alan de Freitas">
+        
+          <img src="https://avatars.githubusercontent.com/u/5369819?v=4"
+            alt="Alan de Freitas"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Alan de Freitas
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/ashtum">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Mohammad Nejati">
+        
+          <img src="https://avatars.githubusercontent.com/u/11743154?v=4"
+            alt="Mohammad Nejati"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Mohammad Nejati
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/mzimbres">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Marcelo Zimbres">
+        
+          <img src="https://avatars.githubusercontent.com/u/111016?v=4"
+            alt="Marcelo Zimbres"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Marcelo Zimbres
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/olk">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Oliver Kowalke">
+        
+          <img src="https://avatars.githubusercontent.com/u/914496?v=4"
+            alt="Oliver Kowalke"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Oliver Kowalke
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Bruno Iljazovic">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Bruno Iljazovic
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/sdarwin">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="sdarwin">
+        
+          <img src="https://avatars.githubusercontent.com/u/1257803?v=4"
+            alt="sdarwin"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          sdarwin
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/barendgehrels">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Barend Gehrels">
+        
+          <img src="https://avatars.githubusercontent.com/u/334849?v=4"
+            alt="Barend Gehrels"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Barend Gehrels
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Kilian Kilger">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Kilian Kilger
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/grisumbras">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Dmitry">
+        
+          <img src="https://avatars.githubusercontent.com/u/2770707?v=4"
+            alt="Dmitry"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Dmitry
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/jefftrull">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Jeff Trull">
+        
+          <img src="https://avatars.githubusercontent.com/u/762705?v=4"
+            alt="Jeff Trull"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Jeff Trull
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Abhay Kumar">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Abhay Kumar
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Adder">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Adder
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Igor Zhukov">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Igor Zhukov
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/HDembinski">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Hans Dembinski">
+        
+          <img src="https://avatars.githubusercontent.com/u/2631586?v=4"
+            alt="Hans Dembinski"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Hans Dembinski
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/ecatmur">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Ed Catmur">
+        
+          <img src="https://avatars.githubusercontent.com/u/801922?v=4"
+            alt="Ed Catmur"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Ed Catmur
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/spreadsort">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="spreadsort">
+        
+          <img src="https://avatars.githubusercontent.com/u/5088220?v=4"
+            alt="spreadsort"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          spreadsort
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Fahad Syed">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Fahad Syed
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/timblechmann">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Tim Blechmann">
+        
+          <img src="https://avatars.githubusercontent.com/u/792880?v=4"
+            alt="Tim Blechmann"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Tim Blechmann
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Pavel P">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Pavel P
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/k3DW">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="braden">
+        
+          <img src="https://avatars.githubusercontent.com/u/10316270?v=4"
+            alt="braden"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          braden
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Tomato-in">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Tomato-in
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Petter Reinholdtsen">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Petter Reinholdtsen
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/Thomas-Barbier-1A">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Thomas Barbier">
+        
+          <img src="https://avatars.githubusercontent.com/u/36666320?v=4"
+            alt="Thomas Barbier"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Thomas Barbier
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Luohao Wang">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Luohao Wang
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/jeking3">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="James E. King III">
+        
+          <img src="https://avatars.githubusercontent.com/u/11771245?v=4"
+            alt="James E. King III"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          James E. King III
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="high on tantor">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          high on tantor
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Jenkins nedprod CI">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Jenkins nedprod CI
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/glenfe">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Glen Fernandes">
+        
+          <img src="https://avatars.githubusercontent.com/u/712180?v=4"
+            alt="Glen Fernandes"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Glen Fernandes
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/yurybura">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Yury Bura">
+        
+          <img src="https://avatars.githubusercontent.com/u/20358738?v=4"
+            alt="Yury Bura"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Yury Bura
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Sergiu Deitsch">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Sergiu Deitsch
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/tkoecker">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="tkoecker">
+        
+          <img src="https://avatars.githubusercontent.com/u/22029886?v=4"
+            alt="tkoecker"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          tkoecker
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Philipp Otterbein">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Philipp Otterbein
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Danijel Zlaus">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Danijel Zlaus
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="RK-BFX">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          RK-BFX
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Eugene Zelenko">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Eugene Zelenko
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Davin">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Davin
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Thomas Dickerson">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Thomas Dickerson
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Wolfgang Bangerth">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Wolfgang Bangerth
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Holger Hoffstätte">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Holger Hoffstätte
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Yuhan Liu">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Yuhan Liu
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Adem Budak">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Adem Budak
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/sabel83">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Abel Sinkovics">
+        
+          <img src="https://avatars.githubusercontent.com/u/290270?v=4"
+            alt="Abel Sinkovics"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Abel Sinkovics
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/nigels-com">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Nigel Stewart">
+        
+          <img src="https://avatars.githubusercontent.com/u/545677?v=4"
+            alt="Nigel Stewart"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Nigel Stewart
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="DockedFerret800">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          DockedFerret800
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/BrianWeed">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="BrianWeed">
+        
+          <img src="https://avatars.githubusercontent.com/u/3628232?v=4"
+            alt="BrianWeed"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          BrianWeed
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/saki7">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Nana Sakisaka">
+        
+          <img src="https://avatars.githubusercontent.com/u/1901813?v=4"
+            alt="Nana Sakisaka"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Nana Sakisaka
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="zjyhjqs">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          zjyhjqs
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/wiso">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Ruggero Turra">
+        
+          <img src="https://avatars.githubusercontent.com/u/143389?v=4"
+            alt="Ruggero Turra"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Ruggero Turra
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Daniil">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Daniil
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Coia Prant">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Coia Prant
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Mathias Stearn">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Mathias Stearn
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Paweł Stankowski">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Paweł Stankowski
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Jan Palus">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Jan Palus
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Korina Šimičević">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Korina Šimičević
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a >
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="AnonymousPC">
+        
+          <i
+            class="
+              text-3xl
+              align-middle fas fa-user text-white dark:text-white/60
+            "
+          ></i>
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          AnonymousPC
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+            
+
+
+  <div class="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-black rounded-lg">
+    <a href="https://github.com/Osyotr">
+      <div class="w-min text-center flex flex-col justify-center items-center">
+        <div
+          class="w-9 h-9 bg-gray-300 dark:bg-slate flex items-center justify-center relative rounded-lg"
+          title="Osyotr">
+        
+          <img src="https://avatars.githubusercontent.com/u/8740768?v=4"
+            alt="Osyotr"
+            class="
+              rounded-lg h-full w-full object-cover mx-auto
+              "
+            />
+        
+        </div>
+      </div>
+    </a>
+    
+      <div class="flex flex-col leading-tight min-w-[15rem]">
+        <div class="text-black dark:text-white">
+          Osyotr
+        </div>
+        
+        <div
+          class="
+            text-sm
+            
+              text-gray-400 font-light
+            
+          "
+        >
+          Contributor
+        </div>
+        
+      </div>
+    
+  </div>
+
+
+
+          
+        </div>
+      </section>
+    
+
+  
+  </main>
+
+      
+      </div>
+
+      
+        
+<style>
+  .main-footer {
+    padding: .5rem 1rem;
+    margin: auto;
+  }
+
+  .footer-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    text-align: center;
+    max-width:60rem;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    padding-top: .75rem;
+    width: 100%;
+    padding: 0 5rem;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  .links a {
+    display: block;
+    margin: .5rem 0;
+    color: var(--text-color);
+  }
+
+  .links a:hover, .link-icons a:hover {
+    color: var(--primary-color);
+  }
+
+  .link-icons {
+    display:flex;
+    width: 14rem;
+    align-items:center;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .small-text {
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  div:has(.small-text){
+       margin-bottom: 0.75rem;
+  }
+
+  .xsmall-text {
+    font-style: italic;
+    font-size: .75rem;
+    line-height: 1rem;
+  }
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding-bottom: 2.75rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  .footer-container {
+    padding: 0rem 2.25rem 0 2.25rem;
+    margin-top: 0;
+  }
+
+  .link-icons {
+    width: 14rem;
+  }
+}
+</style>
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="links">
+      <a href="https://lists.boost.org/mailman3/lists/boost-users.lists.boost.org/">Contact</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms-of-use/">Terms of Use</a>
+      <a href="/doc/user-guide/reporting-issues.html">Report Bug</a>
+      <div class="link-icons">
+        <a href="https://x.com/boost_libraries" target="_blank" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="https://bsky.app/profile/boost.org" target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+<a href="https://mastodon.social/@boostlibs" target="_blank" title="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
+<a href="https://www.reddit.com/user/boostlibs/" target="_blank" title="Reddit"><i class="fa-brands fa-reddit"></i></a>
+<a href="https://github.com/boostorg" target="_blank" title="Github"><i class="fa-brands fa-github"></i></a>
+<a href="https://www.linkedin.com/company/cppalliance/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+
+      </div>
+    </div>
+    <div><span class="small-text">Website supported by grants from <a href="https://cppalliance.org/" target="_blank" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">The C++ Alliance</a>.</span></div>
+    <div><span class="xsmall-text">Distributed under the <a href="/LICENSE_1_0.txt" class="text-sky-600 dark:text-sky-300 hover:text-orange dark:hover:text-orange">Boost Software License, Version 1.0</a>.</span></div>
+    
+  </div>
+</footer>
+
+      
+    </div>
+
+
+    
+
+     <script>
+      var r = document.querySelector(':root');
+      const messageVisibilitySeconds = 6;
+      const opacityTransitionTime = 0.15; // matches the tailwind transition-opacity time
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+
+      function modalSize(h,w) {
+        var rs = getComputedStyle(r);
+        r.style.setProperty('--modalWidth', w);
+        r.style.setProperty('--modalHeight', h);
+      }
+
+      /********* Function to open modal ***********/
+      function displayModal(height,width,src) {
+        event.preventDefault()
+        let modal = document.getElementById('modalOverlay');
+        modal.classList.add('show-modal');
+        modalSize(height,width);
+        let modalframe = document.getElementById('modalFrame');
+        modalframe.setAttribute("src", src);
+      }
+
+      function closeModal() {
+        let modal = document.getElementById('modalOverlay');
+        modal.classList.remove('show-modal');
+      }
+
+      const hideMessage = async () => {
+        const message = document.getElementById('messages');
+        message.classList.add('opacity-0');
+        await delay(opacityTransitionTime * 1000);
+        const messageButton = message.querySelector('button');
+        if (messageButton) {
+          messageButton.click();
+        }
+      }
+
+      const providerMatchesLastLogin = async (provider) => {
+        const lastLoginProvider = localStorage.getItem('boostLoginMethod') || null;
+        return provider === lastLoginProvider;
+      }
+
+      const trackLoginUpdateCheck = async () => {
+        const footer = document.querySelector('footer');
+        if (!footer) {
+          return;
+        }
+        const indicator = footer.dataset.trackLoginMethod; // intentionally not cast to boolean
+        const loginMethod = footer.dataset.loginMethod;
+        if (indicator) {
+          if (indicator === 'True') {
+            localStorage.setItem('boostLoginMethod', loginMethod);
+          } else {
+            localStorage.removeItem('boostLoginMethod');
+          }
+        }
+      }
+
+      const changeVersionAndCategory = (event) => {
+        const urlPatterns = {
+          libraries: {
+            regex: /^(https?:\/\/[\S:]+\/libraries\/)([^\/]+)(\/?[a-z]*)(\/?\S*)?\/?$/,
+            substitution: (event) => {
+              switch (event.target.id) {
+                case 'id_category':
+                  return `$1$2$3${event.target.value ? `/${event.target.value}` : ''}/`;
+                case 'id_version':
+                  return `$1${event.target.value}$3$4`;
+                default:
+                  return null;
+              }
+            }
+          },
+          library: {
+            regex: /^(https?:\/\/[\S:]+\/library\/)([^\/]+)\/([^\/]+)\/?$/,
+            substitution: (event) => `$1${event.target.value}/$3/`
+          },
+          releases: {
+            regex: /^(https?:\/\/[\S:]+\/releases\/)([^\/]+)?\/?$/,
+            substitution: (event) => `$1${event.target.value}/`
+          }
+        };
+
+        const currentUrl = window.location.href;
+        for (const key in urlPatterns) {
+          const pattern = urlPatterns[key];
+          if (pattern.regex.test(currentUrl)) {
+            const substitutionString = pattern.substitution(event);
+            if (substitutionString) {
+              window.location.href = currentUrl.replace(pattern.regex, substitutionString);
+            }
+            break;
+          }
+        }
+      }
+
+      const manualPlausibleTrigger = async () => {
+        window.plausible = window.plausible || function() {
+          (window.plausible.q = window.plausible.q || []).push(arguments)
+        }
+        let loc = window.parent.location.href || window.location.href;
+        plausible("pageview", { u: loc + window.location.search });
+      };
+
+      window.addEventListener('DOMContentLoaded', () => {
+        // resets the form on back button press
+        document.getElementById("id_category")?.closest('form').reset();
+        document.getElementById("id_version")?.closest('form').reset();
+        document.getElementById("id_category")?.addEventListener("change", changeVersionAndCategory);
+        document.getElementById("id_version")?.addEventListener("change", changeVersionAndCategory);
+        manualPlausibleTrigger();
+      });
+      (async () => {
+        await trackLoginUpdateCheck();
+        await delay(messageVisibilitySeconds * 1000);
+        await hideMessage();
+      })();
+   </script>
+
+  </body>
+
+</html>
