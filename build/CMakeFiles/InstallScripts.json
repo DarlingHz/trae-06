@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/soma/code/trae/12-02/05/06/build/cmake_install.cmake",
+		"/Users/soma/code/trae/12-02/05/06/build/_deps/crow-build/cmake_install.cmake",
+		"/Users/soma/code/trae/12-02/05/06/build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
