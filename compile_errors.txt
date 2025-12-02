@@ -1,0 +1,549 @@
+[  4%] Building CXX object CMakeFiles/LibraryManagementSystem.dir/src/controller/BookController.cpp.o
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:15:17: error: use of undeclared identifier 'library'
+   15 | using namespace library::controller;
+      |                 ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:16:17: error: use of undeclared identifier 'library'
+   16 | using namespace library::service;
+      |                 ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:17:17: error: use of undeclared identifier 'library'
+   17 | using namespace library::model;
+      |                 ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:79:56: error: no member named 'getAllBooks' in 'BookService'
+   79 |         vector<shared_ptr<Book>> books = book_service->getAllBooks();
+      |                                          ~~~~~~~~~~~~~~^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:80:9: error: reference to 'json' is ambiguous
+   80 |         json::value response = web::json::value::array();
+      |         ^
+/Users/soma/code/trae/12-02/02/06/src/controller/../service/../model/ReservationRecord.h:7:7: note: candidate found by name lookup is 'json'
+    7 | using json = nlohmann::json;
+      |       ^
+/opt/homebrew/include/cpprest/json.h:30:11: note: candidate found by name lookup is 'web::json'
+   30 | namespace json
+      |           ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:114:166: error: extraneous ')' after condition, expected a statement
+  114 |             if (!body.has_field("title") || !body.has_field("author") || !body.has_field("isbn") || !body.has_field("category_id") || !body.has_field("total_count"))) {
+      |                                                                                                                                                                      ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:139:50: error: no viable conversion from 'shared_ptr<Book>' to 'const Book'
+  139 |             bool success = book_service->addBook(book);
+      |                                                  ^~~~
+/Users/soma/code/trae/12-02/02/06/src/controller/../service/../model/Book.h:8:7: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'shared_ptr<Book>' to 'const Book &' for 1st argument
+    8 | class Book {
+      |       ^~~~
+/Users/soma/code/trae/12-02/02/06/src/controller/../service/../model/Book.h:8:7: note: candidate constructor (the implicit move constructor) not viable: no known conversion from 'shared_ptr<Book>' to 'Book &&' for 1st argument
+    8 | class Book {
+      |       ^~~~
+/Users/soma/code/trae/12-02/02/06/src/controller/../service/BookService.h:16:30: note: passing argument to parameter 'book' here
+   16 |     bool addBook(const Book& book);
+      |                              ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:159:166: error: extraneous ')' after condition, expected a statement
+  159 |             if (!body.has_field("title") || !body.has_field("author") || !body.has_field("isbn") || !body.has_field("category_id") || !body.has_field("total_count"))) {
+      |                                                                                                                                                                      ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:304:35: error: invalid operands to binary expression ('std::string' (aka 'basic_string<char>') and 'int')
+  304 |             if (user->getStatus() != 1) {
+      |                 ~~~~~~~~~~~~~~~~~ ^  ~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__variant/monostate.h:38:45: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'monostate' for 1st argument
+   38 | _LIBCPP_HIDE_FROM_ABI inline constexpr bool operator!=(monostate, monostate) noexcept { return false; }
+      |                                             ^          ~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h:101:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_condition' for 1st argument
+  101 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_condition& __x, const error_condition& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:107:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_code' for 1st argument
+  107 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_code& __x, const error_code& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:111:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_code' for 1st argument
+  111 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_code& __x, const error_condition& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:115:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_condition' for 1st argument
+  115 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_condition& __x, const error_code& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h:89:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to '__thread_id' for 1st argument
+   89 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(__thread_id __x, __thread_id __y) _NOEXCEPT { return !(__x == __y); }
+      |                                   ^          ~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:473:1: note: candidate template ignored: could not match 'pair' against 'std::basic_string'
+  473 | operator!=(const pair<_T1, _T2>& __x, const pair<_U1, _U2>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ios/fpos.h:70:35: note: candidate template ignored: could not match 'fpos' against 'std::basic_string'
+   70 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const fpos<_StateT>& __x, const fpos<_StateT>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/reverse_iterator.h:232:1: note: candidate template ignored: could not match 'reverse_iterator' against 'std::basic_string'
+  232 | operator!=(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:149:1: note: candidate template ignored: could not match '__wrap_iter' against 'std::basic_string'
+  149 | operator!=(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter1>& __y) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:155:1: note: candidate template ignored: could not match '__wrap_iter' against 'std::basic_string'
+  155 | operator!=(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter2>& __y) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:169:35: note: candidate template ignored: could not match 'allocator' against 'std::basic_string'
+  169 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const allocator<_Tp>&, const allocator<_Up>&) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/tuple:1187:1: note: candidate template ignored: could not match 'tuple' against 'std::basic_string'
+ 1187 | operator!=(const tuple<_Tp...>& __x, const tuple<_Up...>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:774:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::basic_string'
+  774 | operator!=(basic_string_view<_CharT, _Traits> __lhs, basic_string_view<_CharT, _Traits> __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:780:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::basic_string'
+  780 | operator!=(basic_string_view<_CharT, _Traits> __lhs,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:787:1: note: candidate template ignored: could not match 'basic_string_view<_CharT, _Traits>' against 'int'
+  787 | operator!=(__type_identity_t<basic_string_view<_CharT, _Traits> > __lhs,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1007:1: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1007 | operator!=(const optional<_Tp>& __x, const optional<_Up>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1089:38: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1089 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(const optional<_Tp>& __x, nullopt_t) noexcept {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1094:38: note: candidate template ignored: could not match 'optional<_Tp>' against 'int'
+ 1094 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(nullopt_t, const optional<_Tp>& __x) noexcept {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1168:1: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1168 | operator!=(const optional<_Tp>& __x, const _Up& __v) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1176:1: note: candidate template ignored: could not match 'optional<_Up>' against 'int'
+ 1176 | operator!=(const _Tp& __v, const optional<_Up>& __x) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:93:35: note: candidate template ignored: could not match 'istream_iterator' against 'std::basic_string'
+   93 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const istream_iterator<_Tp, _CharT, _Traits, _Distance>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istreambuf_iterator.h:104:1: note: candidate template ignored: could not match 'istreambuf_iterator' against 'std::basic_string'
+  104 | operator!=(const istreambuf_iterator<_CharT, _Traits>& __a, const istreambuf_iterator<_CharT, _Traits>& __b) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h:262:1: note: candidate template ignored: could not match 'move_iterator' against 'std::basic_string'
+  262 | operator!=(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/variant:1488:38: note: candidate template ignored: could not match 'variant' against 'std::basic_string'
+ 1488 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:651:35: note: candidate template ignored: could not match 'unique_ptr' against 'std::basic_string'
+  651 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:702:35: note: candidate template ignored: could not match 'unique_ptr' against 'std::basic_string'
+  702 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unique_ptr<_T1, _D1>& __x, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:707:35: note: candidate template ignored: could not match 'unique_ptr<_T1, _D1>' against 'int'
+  707 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const unique_ptr<_T1, _D1>& __x) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1020:35: note: candidate template ignored: could not match 'shared_ptr' against 'std::basic_string'
+ 1020 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1071:35: note: candidate template ignored: could not match 'shared_ptr' against 'std::basic_string'
+ 1071 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const shared_ptr<_Tp>& __x, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1076:35: note: candidate template ignored: could not match 'shared_ptr<_Tp>' against 'int'
+ 1076 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const shared_ptr<_Tp>& __x) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3888:35: note: candidate template ignored: could not match 'basic_string<_CharT, _Traits, _Allocator>' against 'int'
+ 3888 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3895:1: note: candidate template ignored: could not match 'const _CharT *' against 'std::string' (aka 'basic_string<char>')
+ 3895 | operator!=(const _CharT* __lhs, const basic_string<_CharT, _Traits, _Allocator>& __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3901:1: note: candidate template ignored: could not match 'const _CharT *' against 'int'
+ 3901 | operator!=(const basic_string<_CharT, _Traits, _Allocator>& __lhs, const _CharT* __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/array:454:35: note: candidate template ignored: could not match 'array' against 'std::basic_string'
+  454 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const array<_Tp, _Size>& __x, const array<_Tp, _Size>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque:2552:35: note: candidate template ignored: could not match 'deque' against 'std::basic_string'
+ 2552 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const deque<_Tp, _Allocator>& __x, const deque<_Tp, _Allocator>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:1032:35: note: candidate template ignored: could not match 'function' against 'std::basic_string'
+ 1032 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const function<_Rp(_ArgTypes...)>& __f, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:1037:35: note: candidate template ignored: could not match 'function<_Rp (_ArgTypes...)>' against 'int'
+ 1037 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const function<_Rp(_ArgTypes...)>& __f) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/comparison.h:35:35: note: candidate template ignored: could not match 'vector' against 'std::basic_string'
+   35 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const vector<_Tp, _Allocator>& __x, const vector<_Tp, _Allocator>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map:1831:35: note: candidate template ignored: could not match 'unordered_map' against 'std::basic_string'
+ 1831 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map:2531:35: note: candidate template ignored: could not match 'unordered_multimap' against 'std::basic_string'
+ 2531 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/queue:476:35: note: candidate template ignored: could not match 'queue' against 'std::basic_string'
+  476 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const queue<_Tp, _Container>& __x, const queue<_Tp, _Container>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack:332:35: note: candidate template ignored: could not match 'stack' against 'std::basic_string'
+  332 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const stack<_Tp, _Container>& __x, const stack<_Tp, _Container>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list:1503:1: note: candidate template ignored: could not match 'forward_list' against 'std::basic_string'
+ 1503 | operator!=(const forward_list<_Tp, _Alloc>& __x, const forward_list<_Tp, _Alloc>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/discard_block_engine.h:131:1: note: candidate template ignored: could not match 'discard_block_engine' against 'std::basic_string'
+  131 | operator!=(const discard_block_engine<_Eng, _Pp, _Rp>& __x, const discard_block_engine<_Eng, _Pp, _Rp>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/independent_bits_engine.h:181:1: note: candidate template ignored: could not match 'independent_bits_engine' against 'std::basic_string'
+  181 | operator!=(const independent_bits_engine<_Eng, _Wp, _UInt>& __x, const independent_bits_engine<_Eng, _Wp, _UInt>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/shuffle_order_engine.h:184:1: note: candidate template ignored: could not match 'shuffle_order_engine' against 'std::basic_string'
+  184 | operator!=(const shuffle_order_engine<_Eng, _Kp>& __x, const shuffle_order_engine<_Eng, _Kp>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/mersenne_twister_engine.h:485:1: note: candidate template ignored: could not match 'mersenne_twister_engine' against 'std::basic_string'
+  485 | operator!=(const mersenne_twister_engine<_UInt, _Wp, _Np, _Mp, _Rp, _Ap, _Up, _Dp, _Sp, _Bp, _Tp, _Cp, _Lp, _Fp>& __x,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h:220:35: note: candidate template ignored: could not match 'subtract_with_carry_engine' against 'std::basic_string'
+  220 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const subtract_with_carry_engine<_UInt, _Wp, _Sp, _Rp>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:1604:1: note: candidate template ignored: could not match 'map' against 'std::basic_string'
+ 1604 | operator!=(const map<_Key, _Tp, _Compare, _Allocator>& __x, const map<_Key, _Tp, _Compare, _Allocator>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:2125:1: note: candidate template ignored: could not match 'multimap' against 'std::basic_string'
+ 2125 | operator!=(const multimap<_Key, _Tp, _Compare, _Allocator>& __x, const multimap<_Key, _Tp, _Compare, _Allocator>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3034:1: note: candidate template ignored: requirement '__is_val_expr<std::string>::value' was not satisfied [with _Expr1 = std::string, _Expr2 = int]
+ 3034 | operator!=(const _Expr1& __x, const _Expr2& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3043:1: note: candidate template ignored: requirement '__is_val_expr<std::string>::value' was not satisfied [with _Expr = std::string]
+ 3043 | operator!=(const _Expr& __x, const typename _Expr::value_type& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3052:1: note: candidate template ignored: requirement '__is_val_expr<int>::value' was not satisfied [with _Expr = int]
+ 3052 | operator!=(const typename _Expr::value_type& __x, const _Expr& __y) {
+      | ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:344:35: error: invalid operands to binary expression ('std::string' (aka 'basic_string<char>') and 'int')
+  344 |             if (user->getStatus() != 1) {
+      |                 ~~~~~~~~~~~~~~~~~ ^  ~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__variant/monostate.h:38:45: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'monostate' for 1st argument
+   38 | _LIBCPP_HIDE_FROM_ABI inline constexpr bool operator!=(monostate, monostate) noexcept { return false; }
+      |                                             ^          ~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h:101:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_condition' for 1st argument
+  101 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_condition& __x, const error_condition& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:107:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_code' for 1st argument
+  107 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_code& __x, const error_code& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:111:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_code' for 1st argument
+  111 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_code& __x, const error_condition& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:115:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_condition' for 1st argument
+  115 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_condition& __x, const error_code& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h:89:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to '__thread_id' for 1st argument
+   89 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(__thread_id __x, __thread_id __y) _NOEXCEPT { return !(__x == __y); }
+      |                                   ^          ~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:473:1: note: candidate template ignored: could not match 'pair' against 'std::basic_string'
+  473 | operator!=(const pair<_T1, _T2>& __x, const pair<_U1, _U2>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ios/fpos.h:70:35: note: candidate template ignored: could not match 'fpos' against 'std::basic_string'
+   70 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const fpos<_StateT>& __x, const fpos<_StateT>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/reverse_iterator.h:232:1: note: candidate template ignored: could not match 'reverse_iterator' against 'std::basic_string'
+  232 | operator!=(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:149:1: note: candidate template ignored: could not match '__wrap_iter' against 'std::basic_string'
+  149 | operator!=(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter1>& __y) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:155:1: note: candidate template ignored: could not match '__wrap_iter' against 'std::basic_string'
+  155 | operator!=(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter2>& __y) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:169:35: note: candidate template ignored: could not match 'allocator' against 'std::basic_string'
+  169 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const allocator<_Tp>&, const allocator<_Up>&) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/tuple:1187:1: note: candidate template ignored: could not match 'tuple' against 'std::basic_string'
+ 1187 | operator!=(const tuple<_Tp...>& __x, const tuple<_Up...>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:774:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::basic_string'
+  774 | operator!=(basic_string_view<_CharT, _Traits> __lhs, basic_string_view<_CharT, _Traits> __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:780:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::basic_string'
+  780 | operator!=(basic_string_view<_CharT, _Traits> __lhs,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:787:1: note: candidate template ignored: could not match 'basic_string_view<_CharT, _Traits>' against 'int'
+  787 | operator!=(__type_identity_t<basic_string_view<_CharT, _Traits> > __lhs,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1007:1: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1007 | operator!=(const optional<_Tp>& __x, const optional<_Up>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1089:38: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1089 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(const optional<_Tp>& __x, nullopt_t) noexcept {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1094:38: note: candidate template ignored: could not match 'optional<_Tp>' against 'int'
+ 1094 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(nullopt_t, const optional<_Tp>& __x) noexcept {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1168:1: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1168 | operator!=(const optional<_Tp>& __x, const _Up& __v) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1176:1: note: candidate template ignored: could not match 'optional<_Up>' against 'int'
+ 1176 | operator!=(const _Tp& __v, const optional<_Up>& __x) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:93:35: note: candidate template ignored: could not match 'istream_iterator' against 'std::basic_string'
+   93 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const istream_iterator<_Tp, _CharT, _Traits, _Distance>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istreambuf_iterator.h:104:1: note: candidate template ignored: could not match 'istreambuf_iterator' against 'std::basic_string'
+  104 | operator!=(const istreambuf_iterator<_CharT, _Traits>& __a, const istreambuf_iterator<_CharT, _Traits>& __b) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h:262:1: note: candidate template ignored: could not match 'move_iterator' against 'std::basic_string'
+  262 | operator!=(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/variant:1488:38: note: candidate template ignored: could not match 'variant' against 'std::basic_string'
+ 1488 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:651:35: note: candidate template ignored: could not match 'unique_ptr' against 'std::basic_string'
+  651 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:702:35: note: candidate template ignored: could not match 'unique_ptr' against 'std::basic_string'
+  702 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unique_ptr<_T1, _D1>& __x, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:707:35: note: candidate template ignored: could not match 'unique_ptr<_T1, _D1>' against 'int'
+  707 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const unique_ptr<_T1, _D1>& __x) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1020:35: note: candidate template ignored: could not match 'shared_ptr' against 'std::basic_string'
+ 1020 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1071:35: note: candidate template ignored: could not match 'shared_ptr' against 'std::basic_string'
+ 1071 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const shared_ptr<_Tp>& __x, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1076:35: note: candidate template ignored: could not match 'shared_ptr<_Tp>' against 'int'
+ 1076 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const shared_ptr<_Tp>& __x) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3888:35: note: candidate template ignored: could not match 'basic_string<_CharT, _Traits, _Allocator>' against 'int'
+ 3888 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3895:1: note: candidate template ignored: could not match 'const _CharT *' against 'std::string' (aka 'basic_string<char>')
+ 3895 | operator!=(const _CharT* __lhs, const basic_string<_CharT, _Traits, _Allocator>& __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3901:1: note: candidate template ignored: could not match 'const _CharT *' against 'int'
+ 3901 | operator!=(const basic_string<_CharT, _Traits, _Allocator>& __lhs, const _CharT* __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/array:454:35: note: candidate template ignored: could not match 'array' against 'std::basic_string'
+  454 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const array<_Tp, _Size>& __x, const array<_Tp, _Size>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque:2552:35: note: candidate template ignored: could not match 'deque' against 'std::basic_string'
+ 2552 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const deque<_Tp, _Allocator>& __x, const deque<_Tp, _Allocator>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:1032:35: note: candidate template ignored: could not match 'function' against 'std::basic_string'
+ 1032 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const function<_Rp(_ArgTypes...)>& __f, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:1037:35: note: candidate template ignored: could not match 'function<_Rp (_ArgTypes...)>' against 'int'
+ 1037 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const function<_Rp(_ArgTypes...)>& __f) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/comparison.h:35:35: note: candidate template ignored: could not match 'vector' against 'std::basic_string'
+   35 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const vector<_Tp, _Allocator>& __x, const vector<_Tp, _Allocator>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map:1831:35: note: candidate template ignored: could not match 'unordered_map' against 'std::basic_string'
+ 1831 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map:2531:35: note: candidate template ignored: could not match 'unordered_multimap' against 'std::basic_string'
+ 2531 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/queue:476:35: note: candidate template ignored: could not match 'queue' against 'std::basic_string'
+  476 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const queue<_Tp, _Container>& __x, const queue<_Tp, _Container>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack:332:35: note: candidate template ignored: could not match 'stack' against 'std::basic_string'
+  332 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const stack<_Tp, _Container>& __x, const stack<_Tp, _Container>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list:1503:1: note: candidate template ignored: could not match 'forward_list' against 'std::basic_string'
+ 1503 | operator!=(const forward_list<_Tp, _Alloc>& __x, const forward_list<_Tp, _Alloc>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/discard_block_engine.h:131:1: note: candidate template ignored: could not match 'discard_block_engine' against 'std::basic_string'
+  131 | operator!=(const discard_block_engine<_Eng, _Pp, _Rp>& __x, const discard_block_engine<_Eng, _Pp, _Rp>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/independent_bits_engine.h:181:1: note: candidate template ignored: could not match 'independent_bits_engine' against 'std::basic_string'
+  181 | operator!=(const independent_bits_engine<_Eng, _Wp, _UInt>& __x, const independent_bits_engine<_Eng, _Wp, _UInt>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/shuffle_order_engine.h:184:1: note: candidate template ignored: could not match 'shuffle_order_engine' against 'std::basic_string'
+  184 | operator!=(const shuffle_order_engine<_Eng, _Kp>& __x, const shuffle_order_engine<_Eng, _Kp>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/mersenne_twister_engine.h:485:1: note: candidate template ignored: could not match 'mersenne_twister_engine' against 'std::basic_string'
+  485 | operator!=(const mersenne_twister_engine<_UInt, _Wp, _Np, _Mp, _Rp, _Ap, _Up, _Dp, _Sp, _Bp, _Tp, _Cp, _Lp, _Fp>& __x,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h:220:35: note: candidate template ignored: could not match 'subtract_with_carry_engine' against 'std::basic_string'
+  220 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const subtract_with_carry_engine<_UInt, _Wp, _Sp, _Rp>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:1604:1: note: candidate template ignored: could not match 'map' against 'std::basic_string'
+ 1604 | operator!=(const map<_Key, _Tp, _Compare, _Allocator>& __x, const map<_Key, _Tp, _Compare, _Allocator>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:2125:1: note: candidate template ignored: could not match 'multimap' against 'std::basic_string'
+ 2125 | operator!=(const multimap<_Key, _Tp, _Compare, _Allocator>& __x, const multimap<_Key, _Tp, _Compare, _Allocator>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3034:1: note: candidate template ignored: requirement '__is_val_expr<std::string>::value' was not satisfied [with _Expr1 = std::string, _Expr2 = int]
+ 3034 | operator!=(const _Expr1& __x, const _Expr2& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3043:1: note: candidate template ignored: requirement '__is_val_expr<std::string>::value' was not satisfied [with _Expr = std::string]
+ 3043 | operator!=(const _Expr& __x, const typename _Expr::value_type& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3052:1: note: candidate template ignored: requirement '__is_val_expr<int>::value' was not satisfied [with _Expr = int]
+ 3052 | operator!=(const typename _Expr::value_type& __x, const _Expr& __y) {
+      | ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:350:42: error: no member named 'returnBook' in 'BookService'
+  350 |             bool success = book_service->returnBook(user_id, book_id);
+      |                            ~~~~~~~~~~~~~~^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:377:37: error: use of undeclared identifier 'user_service_'; did you mean 'user_service'?
+  377 |             shared_ptr<User> user = user_service_->getUserInfo(user_id);
+      |                                     ^~~~~~~~~~~~~
+      |                                     user_service
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.h:54:34: note: 'user_service' declared here
+   54 |     std::shared_ptr<UserService> user_service;
+      |                                  ^
+/Users/soma/code/trae/12-02/02/06/src/controller/BookController.cpp:383:35: error: invalid operands to binary expression ('std::string' (aka 'basic_string<char>') and 'int')
+  383 |             if (user->getStatus() != 1) {
+      |                 ~~~~~~~~~~~~~~~~~ ^  ~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__variant/monostate.h:38:45: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'monostate' for 1st argument
+   38 | _LIBCPP_HIDE_FROM_ABI inline constexpr bool operator!=(monostate, monostate) noexcept { return false; }
+      |                                             ^          ~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h:101:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_condition' for 1st argument
+  101 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_condition& __x, const error_condition& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:107:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_code' for 1st argument
+  107 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_code& __x, const error_code& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:111:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_code' for 1st argument
+  111 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_code& __x, const error_condition& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_code.h:115:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to 'const error_condition' for 1st argument
+  115 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const error_condition& __x, const error_code& __y) _NOEXCEPT {
+      |                                   ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/id.h:89:35: note: candidate function not viable: no known conversion from 'std::string' (aka 'basic_string<char>') to '__thread_id' for 1st argument
+   89 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(__thread_id __x, __thread_id __y) _NOEXCEPT { return !(__x == __y); }
+      |                                   ^          ~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/pair.h:473:1: note: candidate template ignored: could not match 'pair' against 'std::basic_string'
+  473 | operator!=(const pair<_T1, _T2>& __x, const pair<_U1, _U2>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ios/fpos.h:70:35: note: candidate template ignored: could not match 'fpos' against 'std::basic_string'
+   70 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const fpos<_StateT>& __x, const fpos<_StateT>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/reverse_iterator.h:232:1: note: candidate template ignored: could not match 'reverse_iterator' against 'std::basic_string'
+  232 | operator!=(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:149:1: note: candidate template ignored: could not match '__wrap_iter' against 'std::basic_string'
+  149 | operator!=(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter1>& __y) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:155:1: note: candidate template ignored: could not match '__wrap_iter' against 'std::basic_string'
+  155 | operator!=(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter2>& __y) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:169:35: note: candidate template ignored: could not match 'allocator' against 'std::basic_string'
+  169 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const allocator<_Tp>&, const allocator<_Up>&) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/tuple:1187:1: note: candidate template ignored: could not match 'tuple' against 'std::basic_string'
+ 1187 | operator!=(const tuple<_Tp...>& __x, const tuple<_Up...>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:774:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::basic_string'
+  774 | operator!=(basic_string_view<_CharT, _Traits> __lhs, basic_string_view<_CharT, _Traits> __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:780:1: note: candidate template ignored: could not match 'basic_string_view' against 'std::basic_string'
+  780 | operator!=(basic_string_view<_CharT, _Traits> __lhs,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string_view:787:1: note: candidate template ignored: could not match 'basic_string_view<_CharT, _Traits>' against 'int'
+  787 | operator!=(__type_identity_t<basic_string_view<_CharT, _Traits> > __lhs,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1007:1: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1007 | operator!=(const optional<_Tp>& __x, const optional<_Up>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1089:38: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1089 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(const optional<_Tp>& __x, nullopt_t) noexcept {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1094:38: note: candidate template ignored: could not match 'optional<_Tp>' against 'int'
+ 1094 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(nullopt_t, const optional<_Tp>& __x) noexcept {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1168:1: note: candidate template ignored: could not match 'optional' against 'std::basic_string'
+ 1168 | operator!=(const optional<_Tp>& __x, const _Up& __v) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1176:1: note: candidate template ignored: could not match 'optional<_Up>' against 'int'
+ 1176 | operator!=(const _Tp& __v, const optional<_Up>& __x) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:93:35: note: candidate template ignored: could not match 'istream_iterator' against 'std::basic_string'
+   93 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const istream_iterator<_Tp, _CharT, _Traits, _Distance>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istreambuf_iterator.h:104:1: note: candidate template ignored: could not match 'istreambuf_iterator' against 'std::basic_string'
+  104 | operator!=(const istreambuf_iterator<_CharT, _Traits>& __a, const istreambuf_iterator<_CharT, _Traits>& __b) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h:262:1: note: candidate template ignored: could not match 'move_iterator' against 'std::basic_string'
+  262 | operator!=(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/variant:1488:38: note: candidate template ignored: could not match 'variant' against 'std::basic_string'
+ 1488 | _LIBCPP_HIDE_FROM_ABI constexpr bool operator!=(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
+      |                                      ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:651:35: note: candidate template ignored: could not match 'unique_ptr' against 'std::basic_string'
+  651 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:702:35: note: candidate template ignored: could not match 'unique_ptr' against 'std::basic_string'
+  702 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unique_ptr<_T1, _D1>& __x, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:707:35: note: candidate template ignored: could not match 'unique_ptr<_T1, _D1>' against 'int'
+  707 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const unique_ptr<_T1, _D1>& __x) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1020:35: note: candidate template ignored: could not match 'shared_ptr' against 'std::basic_string'
+ 1020 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1071:35: note: candidate template ignored: could not match 'shared_ptr' against 'std::basic_string'
+ 1071 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const shared_ptr<_Tp>& __x, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:1076:35: note: candidate template ignored: could not match 'shared_ptr<_Tp>' against 'int'
+ 1076 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const shared_ptr<_Tp>& __x) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3888:35: note: candidate template ignored: could not match 'basic_string<_CharT, _Traits, _Allocator>' against 'int'
+ 3888 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3895:1: note: candidate template ignored: could not match 'const _CharT *' against 'std::string' (aka 'basic_string<char>')
+ 3895 | operator!=(const _CharT* __lhs, const basic_string<_CharT, _Traits, _Allocator>& __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string:3901:1: note: candidate template ignored: could not match 'const _CharT *' against 'int'
+ 3901 | operator!=(const basic_string<_CharT, _Traits, _Allocator>& __lhs, const _CharT* __rhs) _NOEXCEPT {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/array:454:35: note: candidate template ignored: could not match 'array' against 'std::basic_string'
+  454 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const array<_Tp, _Size>& __x, const array<_Tp, _Size>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque:2552:35: note: candidate template ignored: could not match 'deque' against 'std::basic_string'
+ 2552 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const deque<_Tp, _Allocator>& __x, const deque<_Tp, _Allocator>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:1032:35: note: candidate template ignored: could not match 'function' against 'std::basic_string'
+ 1032 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const function<_Rp(_ArgTypes...)>& __f, nullptr_t) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:1037:35: note: candidate template ignored: could not match 'function<_Rp (_ArgTypes...)>' against 'int'
+ 1037 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(nullptr_t, const function<_Rp(_ArgTypes...)>& __f) _NOEXCEPT {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/comparison.h:35:35: note: candidate template ignored: could not match 'vector' against 'std::basic_string'
+   35 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const vector<_Tp, _Allocator>& __x, const vector<_Tp, _Allocator>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map:1831:35: note: candidate template ignored: could not match 'unordered_map' against 'std::basic_string'
+ 1831 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_map:2531:35: note: candidate template ignored: could not match 'unordered_multimap' against 'std::basic_string'
+ 2531 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/queue:476:35: note: candidate template ignored: could not match 'queue' against 'std::basic_string'
+  476 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const queue<_Tp, _Container>& __x, const queue<_Tp, _Container>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack:332:35: note: candidate template ignored: could not match 'stack' against 'std::basic_string'
+  332 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const stack<_Tp, _Container>& __x, const stack<_Tp, _Container>& __y) {
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list:1503:1: note: candidate template ignored: could not match 'forward_list' against 'std::basic_string'
+ 1503 | operator!=(const forward_list<_Tp, _Alloc>& __x, const forward_list<_Tp, _Alloc>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/discard_block_engine.h:131:1: note: candidate template ignored: could not match 'discard_block_engine' against 'std::basic_string'
+  131 | operator!=(const discard_block_engine<_Eng, _Pp, _Rp>& __x, const discard_block_engine<_Eng, _Pp, _Rp>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/independent_bits_engine.h:181:1: note: candidate template ignored: could not match 'independent_bits_engine' against 'std::basic_string'
+  181 | operator!=(const independent_bits_engine<_Eng, _Wp, _UInt>& __x, const independent_bits_engine<_Eng, _Wp, _UInt>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/shuffle_order_engine.h:184:1: note: candidate template ignored: could not match 'shuffle_order_engine' against 'std::basic_string'
+  184 | operator!=(const shuffle_order_engine<_Eng, _Kp>& __x, const shuffle_order_engine<_Eng, _Kp>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/mersenne_twister_engine.h:485:1: note: candidate template ignored: could not match 'mersenne_twister_engine' against 'std::basic_string'
+  485 | operator!=(const mersenne_twister_engine<_UInt, _Wp, _Np, _Mp, _Rp, _Ap, _Up, _Dp, _Sp, _Bp, _Tp, _Cp, _Lp, _Fp>& __x,
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h:220:35: note: candidate template ignored: could not match 'subtract_with_carry_engine' against 'std::basic_string'
+  220 | inline _LIBCPP_HIDE_FROM_ABI bool operator!=(const subtract_with_carry_engine<_UInt, _Wp, _Sp, _Rp>& __x,
+      |                                   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:1604:1: note: candidate template ignored: could not match 'map' against 'std::basic_string'
+ 1604 | operator!=(const map<_Key, _Tp, _Compare, _Allocator>& __x, const map<_Key, _Tp, _Compare, _Allocator>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map:2125:1: note: candidate template ignored: could not match 'multimap' against 'std::basic_string'
+ 2125 | operator!=(const multimap<_Key, _Tp, _Compare, _Allocator>& __x, const multimap<_Key, _Tp, _Compare, _Allocator>& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3034:1: note: candidate template ignored: requirement '__is_val_expr<std::string>::value' was not satisfied [with _Expr1 = std::string, _Expr2 = int]
+ 3034 | operator!=(const _Expr1& __x, const _Expr2& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3043:1: note: candidate template ignored: requirement '__is_val_expr<std::string>::value' was not satisfied [with _Expr = std::string]
+ 3043 | operator!=(const _Expr& __x, const typename _Expr::value_type& __y) {
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/valarray:3052:1: note: candidate template ignored: requirement '__is_val_expr<int>::value' was not satisfied [with _Expr = int]
+ 3052 | operator!=(const typename _Expr::value_type& __x, const _Expr& __y) {
+      | ^
+13 errors generated.
+make[2]: *** [CMakeFiles/LibraryManagementSystem.dir/src/controller/BookController.cpp.o] Error 1
+make[1]: *** [CMakeFiles/LibraryManagementSystem.dir/all] Error 2
+make: *** [all] Error 2
