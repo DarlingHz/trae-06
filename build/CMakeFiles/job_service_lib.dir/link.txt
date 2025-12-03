@@ -1,0 +1,2 @@
+/usr/bin/ar qc libjob_service_lib.a CMakeFiles/job_service_lib.dir/src/job.cpp.o CMakeFiles/job_service_lib.dir/src/job_queue.cpp.o CMakeFiles/job_service_lib.dir/src/task_executor.cpp.o CMakeFiles/job_service_lib.dir/src/task_factory.cpp.o CMakeFiles/job_service_lib.dir/src/storage.cpp.o CMakeFiles/job_service_lib.dir/src/http_server.cpp.o CMakeFiles/job_service_lib.dir/src/utils.cpp.o
+/usr/bin/ranlib libjob_service_lib.a
