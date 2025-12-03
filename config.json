@@ -1,0 +1,23 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "max_threads": 10
+  },
+  "database": {
+    "path": "./data/announcement.db",
+    "connection_pool_size": 5
+  },
+  "auth": {
+    "secret_key": "your-secret-key-here-change-in-production",
+    "token_expire_hours": 24
+  },
+  "cache": {
+    "max_size": 1000,
+    "expire_seconds": 300
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/server.log"
+  }
+}
