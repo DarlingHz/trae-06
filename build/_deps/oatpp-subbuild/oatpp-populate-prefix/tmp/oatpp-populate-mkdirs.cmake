@@ -1,0 +1,27 @@
+# Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
+# file LICENSE.rst or https://cmake.org/licensing for details.
+
+cmake_minimum_required(VERSION ${CMAKE_VERSION}) # this file comes with cmake
+
+# If CMAKE_DISABLE_SOURCE_CHANGES is set to true and the source directory is an
+# existing directory in our source tree, calling file(MAKE_DIRECTORY) on it
+# would cause a fatal error, even though it would be a no-op.
+if(NOT EXISTS "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-src")
+  file(MAKE_DIRECTORY "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-src")
+endif()
+file(MAKE_DIRECTORY
+  "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-build"
+  "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix"
+  "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/tmp"
+  "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp"
+  "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src"
+  "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp"
+)
+
+set(configSubDirs )
+foreach(subDir IN LISTS configSubDirs)
+    file(MAKE_DIRECTORY "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/${subDir}")
+endforeach()
+if(cfgdir)
+  file(MAKE_DIRECTORY "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp${cfgdir}") # cfgdir has leading slash
+endif()
