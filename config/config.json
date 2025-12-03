@@ -1,0 +1,10 @@
+{
+  "service": {
+    "port": 8080,
+    "host": "0.0.0.0",
+    "log_level": "info"
+  },
+  "database": {
+    "path": "event_signup.db"
+  }
+}
