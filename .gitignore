@@ -1,0 +1,42 @@
+# Build files
+build/
+*.o
+*.so
+*.a
+*.dylib
+
+# Executables
+device_service
+test_service
+warranty_service
+test_warranty_service
+
+# Logs
+logs/
+*.log
+
+# Config
+config.ini
+config.local.ini
+
+# Database
+*.db
+*.sqlitedb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Test outputs
+*.xml
+*.json
+
+# Temporary files
+tmp/
+/var/
