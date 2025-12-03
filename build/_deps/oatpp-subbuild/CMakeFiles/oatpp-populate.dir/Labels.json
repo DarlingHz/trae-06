@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/CMakeFiles/oatpp-populate"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/CMakeFiles/oatpp-populate.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/CMakeFiles/oatpp-populate-complete.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-build.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-configure.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-download.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-install.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-mkdir.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-patch.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-test.rule"
+		},
+		{
+			"file" : "/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oatpp-populate"
+		],
+		"name" : "oatpp-populate"
+	}
+}

@@ -1,0 +1,14 @@
+# Target labels
+ oatpp-populate
+# Source files and their labels
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/CMakeFiles/oatpp-populate
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/CMakeFiles/oatpp-populate.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/CMakeFiles/oatpp-populate-complete.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-build.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-configure.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-download.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-install.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-mkdir.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-patch.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-test.rule
+/Users/soma/code/trae/12-03/7/06/build/_deps/oatpp-subbuild/oatpp-populate-prefix/src/oatpp-populate-stamp/oatpp-populate-update.rule
