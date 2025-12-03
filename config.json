@@ -1,0 +1,13 @@
+{
+  "server_config": {
+    "port": 10016,
+    "host": "0.0.0.0"
+  },
+  "database_config": {
+    "path": "lost_and_found.db"
+  },
+  "log_config": {
+    "level": "info",
+    "file": "app.log"
+  }
+}
