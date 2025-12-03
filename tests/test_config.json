@@ -1,0 +1,7 @@
+{
+  "port": 8081,
+  "db_path": "test_parking.db",
+  "token_expiration_hours": 1,
+  "min_reservation_duration_hours": 1,
+  "max_reservation_duration_hours": 24
+}

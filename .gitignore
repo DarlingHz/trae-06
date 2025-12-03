@@ -1,0 +1,45 @@
+# Build directory
+build/
+
+# Configuration files
+config.json
+local.json
+*.local.json
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+logs/
+*.log
+*.txt
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.temp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+parking-system
+
+# Documentation
+*.pdf
+*.docx
