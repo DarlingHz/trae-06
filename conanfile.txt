@@ -1,0 +1,6 @@
+[requires]
+boost/1.78.0
+sqlite3/3.39.2
+
+[generators]
+cmake
