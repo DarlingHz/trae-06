@@ -1,5 +1,0 @@
-if(EXISTS "/Users/soma/code/trae/12-01-10/06/build/tests/unit_tests-b12d07c_tests.cmake")
-  include("/Users/soma/code/trae/12-01-10/06/build/tests/unit_tests-b12d07c_tests.cmake")
-else()
-  add_test(unit_tests_NOT_BUILT-b12d07c unit_tests_NOT_BUILT-b12d07c)
-endif()
