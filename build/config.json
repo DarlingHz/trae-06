@@ -1,6 +1,0 @@
-{
-  "port": 8080,
-  "max_threads": 4,
-  "cache_capacity": 100,
-  "db_path": "./data/collab_doc.db"
-}
