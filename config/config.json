@@ -1,0 +1,19 @@
+{
+  "database": {
+    "path": "./bookmarks.db",
+    "max_connections": 10
+  },
+  "http": {
+    "port": 8080,
+    "max_threads": 4
+  },
+  "jwt": {
+    "secret_key": "your_secure_secret_key_here_please_change_in_production",
+    "expires_in": 3600
+  },
+  "cache": {
+    "capacity": 1000,
+    "ttl": 300
+  },
+  "debug": false
+}
