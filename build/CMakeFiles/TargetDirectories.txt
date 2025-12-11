@@ -1,8 +1,0 @@
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/bookmark_service.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/bookmark_tests.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/edit_cache.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/rebuild_cache.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/list_install_components.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/install.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/install/local.dir
-/Users/soma/code/trae/12-03/2/06/build/CMakeFiles/install/strip.dir
