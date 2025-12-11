@@ -1,0 +1,33 @@
+{
+  "server": {
+    "port": 8080,
+    "max_connections": 100,
+    "thread_pool_size": 10
+  },
+  "database": {
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "name": "library",
+    "username": "root",
+    "password": "",
+    "connection_pool_size": 10,
+    "charset": "utf8mb4"
+  },
+  "jwt": {
+    "secret": "library_jwt_secret_key",
+    "expires_in": 86400
+  },
+  "library": {
+    "max_borrow_books": 5,
+    "borrow_period_days": 30,
+    "reservation_expire_hours": 24,
+    "overdue_fine_per_day": 0.5
+  },
+  "logging": {
+    "level": "info",
+    "file_path": "/var/log/library.log",
+    "max_file_size": 10485760,
+    "max_backup_files": 5
+  }
+}
