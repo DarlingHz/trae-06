@@ -1,0 +1,7 @@
+add_test( [==[Same user multiple submissions only keep better score]==] /Users/soma/code/trae/12-01-10/06/build/tests/unit_tests [==[Same user multiple submissions only keep better score]==]  )
+set_tests_properties( [==[Same user multiple submissions only keep better score]==] PROPERTIES WORKING_DIRECTORY /Users/soma/code/trae/12-01-10/06/build/tests SKIP_RETURN_CODE 4)
+add_test( [==[Single user first score submission creates rank]==] /Users/soma/code/trae/12-01-10/06/build/tests/unit_tests [==[Single user first score submission creates rank]==]  )
+set_tests_properties( [==[Single user first score submission creates rank]==] PROPERTIES WORKING_DIRECTORY /Users/soma/code/trae/12-01-10/06/build/tests SKIP_RETURN_CODE 4)
+add_test( [==[Multiple users submissions Top N ranking is correct]==] /Users/soma/code/trae/12-01-10/06/build/tests/unit_tests [==[Multiple users submissions Top N ranking is correct]==]  )
+set_tests_properties( [==[Multiple users submissions Top N ranking is correct]==] PROPERTIES WORKING_DIRECTORY /Users/soma/code/trae/12-01-10/06/build/tests SKIP_RETURN_CODE 4)
+set( unit_tests_TESTS [==[Same user multiple submissions only keep better score]==] [==[Single user first score submission creates rank]==] [==[Multiple users submissions Top N ranking is correct]==])
