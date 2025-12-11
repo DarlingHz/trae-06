@@ -1,3 +1,0 @@
-/Users/soma/code/trae/12-02/05/06/build/_deps/crow-subbuild/CMakeFiles/crow-populate.dir
-/Users/soma/code/trae/12-02/05/06/build/_deps/crow-subbuild/CMakeFiles/edit_cache.dir
-/Users/soma/code/trae/12-02/05/06/build/_deps/crow-subbuild/CMakeFiles/rebuild_cache.dir
